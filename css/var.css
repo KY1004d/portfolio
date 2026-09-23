@@ -1,0 +1,26 @@
+:root {
+/* color */
+--color-black: #101010;
+--color-gray: #3C3D41;
+--color-gray-01: #546471;
+--color-gray-02: #F0F1F3;
+--color-border: #D3D8E2;
+--color-bg: #FCFBFC;
+--color-white: #fff;
+--color-blue: #3B5BFE;
+    
+/* font */
+--font-h2: 700 3.2rem/4.2rem 'Geist', sans-serif;
+--font-sub: 400 1.6rem/2.1rem 'Geist', sans-serif;
+--font-body-m: 400 1.6rem/1.9rem 'Inter', sans-serif;
+--font-body-m2: 400 1.6rem/2.5rem 'Inter', sans-serif;
+--font-body-q: 400 1.6rem/2.1rem 'Inter', sans-serif;
+--font-body-a: 500 1.6rem/2.8rem 'Inter', sans-serif;
+--font-hist: 400 1.6rem/1.9rem 'Inter', sans-serif;
+--font-foot-title: 700 1.6rem/1.9rem 'Geist', sans-serif;
+--font-foot-history: 400 1.6rem/1.9rem 'Geist', sans-serif;
+--font-foot-dec: 500 1.6rem/1.9rem 'Inter', sans-serif;
+--font-foot-year: 400 1.6rem/1.9rem 'Inter', sans-serif;
+--font-Contact: 800 2rem/2.6rem 'Hanken Grotesk', sans-serif;
+--font-header: 600 1.6rem/2.3rem 'Geist', sans-serif;
+}
