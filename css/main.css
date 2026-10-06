@@ -80,6 +80,7 @@ body {
   padding: 2rem 1.2rem;
   text-decoration: none;
   box-sizing: border-box;
+  transition: 0.2s;
 }
 
 .left-top .btn-resume .icon-download {
@@ -382,7 +383,7 @@ body {
 
 .chat-bubble.blue {
   background-color: var(--color-blue);
-  border-radius: 3.2rem 3.2rem 3.2rem 0.5rem;
+  border-radius: 3.2rem 3.2rem 3.2rem 0.4rem;
   font: var(--font-body-q);
   color: var(--font-white);
   align-self: flex-start;
@@ -390,7 +391,7 @@ body {
 
 .chat-bubble.gray {
   background-color: var(--color-gray-02);
-  border-radius: 3.2rem 3.2rem 0.5rem 3.2rem;
+  border-radius: 3.2rem 3.2rem 0.4rem 3.2rem;
   font: var(--font-body-a);
   color: var(--color-gray);
 }

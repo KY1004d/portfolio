@@ -1,4 +1,30 @@
 "use strict";
+const pageEntry = document.documentElement;
+const introHeading = document.querySelector('.sidebar-top h2');
+const reducePageMotion = matchMedia('(prefers-reduced-motion: reduce)');
+let entryFallbackTimer;
+function revealPage() {
+	clearTimeout(entryFallbackTimer);
+	document.removeEventListener('visibilitychange', scheduleEntryFallback);
+	pageEntry.classList.remove('page-entering');
+}
+function scheduleEntryFallback() {
+	clearTimeout(entryFallbackTimer);
+	if (document.visibilityState === 'visible') {
+		entryFallbackTimer = window.setTimeout(() => {
+			if (document.visibilityState === 'visible') revealPage();
+		}, 1600);
+	}
+}
+if (reducePageMotion.matches) {
+	revealPage();
+} else {
+	introHeading.addEventListener('animationend', (event) => {
+		if (event.target.textContent === 'Interfaces') revealPage();
+	});
+	document.addEventListener('visibilitychange', scheduleEntryFallback);
+	scheduleEntryFallback();
+}
 // 양쪽에 원본 5개씩 복제: 매 이동 종료 후 동일한 원본 위치로 순간 복귀합니다.
 document.querySelector('.logo-link').addEventListener('click', (e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
 const track = document.querySelector('.carousel-track');
@@ -11,7 +37,7 @@ track.append(...originals.map(cloneSlide));
 let index = count, moving = false, timer;
 const reduced = matchMedia('(prefers-reduced-motion: reduce)');
 const step = () => originals[0].getBoundingClientRect().width + parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap || 0);
-function position(animate = false) { track.style.transition = animate ? 'transform 420ms cubic-bezier(.22,.68,0,1)' : 'none'; track.style.transform = `translateX(${-index * step()}px)`; }
+function position(animate = false) { track.classList.toggle('is-animating', animate); track.style.transform = `translateX(${-index * step()}px)`; }
 function finish() { clearTimeout(timer); index = count + ((index-count)%count+count)%count; position(); moving = false; document.querySelector('#carousel-status').textContent = `모바일 프로젝트 ${index-count+1} / ${count}`; }
 function move(direction) { if(moving) return; moving=true; index += direction; position(!reduced.matches); if(reduced.matches) finish(); else timer = setTimeout(finish,480); }
 track.addEventListener('transitionend',event=>{if(event.propertyName==='transform' && moving) finish();});
@@ -20,9 +46,9 @@ document.querySelector('.mobile-projects').addEventListener('keydown',event=>{if
 new ResizeObserver(()=>{if(moving)finish();else position();}).observe(viewport);
 position();
 let isDragging = false, startX = 0, currentTranslate = 0, dragDelta = 0;
-track.addEventListener('pointerdown', (e) => { if (e.button !== 0 && e.pointerType === 'mouse') return; if (!e.target.closest('.mobile-card')) return; isDragging = true; startX = e.clientX; currentTranslate = -index * step(); track.style.transition = 'none'; track.setPointerCapture(e.pointerId); });
+track.addEventListener('pointerdown', (e) => { if (e.button !== 0 && e.pointerType === 'mouse') return; if (!e.target.closest('.mobile-card')) return; isDragging = true; startX = e.clientX; currentTranslate = -index * step(); track.classList.remove('is-animating'); track.classList.add('is-dragging'); track.setPointerCapture(e.pointerId); });
 track.addEventListener('pointermove', (e) => { if (!isDragging) return; dragDelta = e.clientX - startX; track.style.transform = `translateX(${currentTranslate + dragDelta}px)`; });
-const handlePointerUp = (e) => { if (!isDragging) return; isDragging = false; const s = step(); const movedTarget = Math.round((currentTranslate + dragDelta) / -s); const diff = movedTarget - index; if (diff !== 0) { index = movedTarget; position(true); timer = setTimeout(finish, 480); moving = true; } else { position(true); } dragDelta = 0; try { track.releasePointerCapture(e.pointerId); } catch(err) {} };
+const handlePointerUp = (e) => { if (!isDragging) return; isDragging = false; track.classList.remove('is-dragging'); const s = step(); const movedTarget = Math.round((currentTranslate + dragDelta) / -s); const diff = movedTarget - index; if (diff !== 0) { index = movedTarget; position(true); timer = setTimeout(finish, 480); moving = true; } else { position(true); } dragDelta = 0; try { track.releasePointerCapture(e.pointerId); } catch(err) {} };
 track.addEventListener('pointerup', handlePointerUp);
 track.addEventListener('pointercancel', handlePointerUp);
 // 스크롤 방향 / 현재 섹션에 따른 네비게이션 상태.
