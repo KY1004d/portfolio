@@ -57,6 +57,102 @@ const nav = document.querySelector('.navigation'); const links = [...nav.querySe
 links.forEach(link => link.addEventListener('click', (e) => { const targetId = link.getAttribute('href'); if (!targetId.startsWith('#') || targetId === '#') return; const targetSection = document.querySelector(targetId); if (targetSection) { e.preventDefault(); targetSection.scrollIntoView({ behavior: 'smooth' }); } }));
 // 프로젝트 카드 호버 시 툴팁 고정 추적 및 오버레이 처리.
 document.querySelectorAll('.project-card').forEach(card => { const tooltip = card.querySelector('.tooltip'); if (!tooltip) return; const text = tooltip.textContent.trim(); tooltip.textContent = ''; [...text].forEach((char, i) => { const span = document.createElement('span'); span.className = 'tooltip-char'; span.textContent = char === ' ' ? '\u00A0' : char; span.style.transitionDelay = `${i * 35}ms`; tooltip.appendChild(span); }); let frameId = null; card.addEventListener('mousemove', (e) => { const rect = card.getBoundingClientRect(); const x = e.clientX - rect.left + 10; const y = e.clientY - rect.top + 16; if (frameId) cancelAnimationFrame(frameId); frameId = requestAnimationFrame(() => { tooltip.style.transform = `translate3d(${x}px, ${y}px, 0)`; }); }); });
+const projectModal = document.querySelector('#project-modal');
+const projectDialog = projectModal.querySelector('.project-dialog');
+const modalTitle = projectModal.querySelector('#modal-project-title');
+const modalOverviewCopy = projectModal.querySelector('#modal-overview-copy');
+const modalContent = projectModal.querySelector('.modal-content');
+const modalPlaceholder = projectModal.querySelector('.modal-placeholder');
+const modalCloseButton = projectModal.querySelector('.modal-close');
+const modalSiteLink = projectModal.querySelector('.modal-site-link');
+const modalUpButton = projectModal.querySelector('.modal-up');
+const modalLinkTypes = ['site', null, 'site', 'figma', 'figma', null, null];
+const modalProjectDetails = [
+	{ description: '지역 주민이 필요한 자료와 도서관 소식을 쉽고 빠르게 찾을 수 있도록 정보 구조와 탐색 경험을 개선했습니다.', image: 'photo-1498050108023-c5249f4df085', alt: '웹사이트를 작업하는 노트북 화면' },
+	{ description: '제품의 소재와 사용 장면이 잘 전달되도록 상세페이지의 콘텐츠 흐름과 시각적 위계를 구성했습니다.', image: 'photo-1547658719-da2b51169166', alt: '웹 페이지 디자인이 보이는 모니터' },
+	{ description: '브랜드의 제품과 혜택을 직관적으로 탐색하고 구매까지 이어갈 수 있도록 자사몰 화면을 재구성했습니다.', image: 'photo-1460925895917-afdab827c52f', alt: '데이터와 서비스 화면이 표시된 디지털 대시보드' },
+	{ description: '여행 일정과 숙소 정보를 비교하고 예약하는 주요 흐름을 중심으로 모바일 사용성을 개선했습니다.', image: 'photo-1507238691740-187a5b1d37b8', alt: '모바일 서비스 디자인을 살펴보는 디자이너' },
+	{ description: '생성형 AI 서비스의 성격을 시각 언어로 정리하고 다양한 접점에서 일관되게 사용할 수 있는 브랜드 아이덴티티를 설계했습니다.', image: 'photo-1558655146-d09347e92766', alt: '다채로운 그래픽 디자인 작업물' },
+	{ description: '텍스트 중심 콘텐츠를 짧은 호흡으로 읽을 수 있도록 핵심 문구와 그래픽 요소를 조합했습니다.', image: 'photo-1519389950473-47ba0277781c', alt: '화면을 함께 살펴보는 팀원들' },
+	{ description: '브랜드의 시즌 프로모션과 상품 정보를 빠르게 전달하도록 소셜 미디어용 배너 시리즈를 구성했습니다.', image: 'photo-1497366754035-f200968a6e72', alt: '브랜드 캠페인을 준비하는 업무 공간' }
+].map(detail => ({ ...detail, imageUrl: `https://images.unsplash.com/${detail.image}?auto=format&fit=crop&w=1200&h=2700&q=80` }));
+let activeProjectCard = null;
+let modalCloseTimer;
+function openProjectModal(card, index) {
+	clearTimeout(modalCloseTimer);
+	activeProjectCard = card;
+	modalTitle.textContent = card.querySelector('.project-title').textContent.trim();
+	const detail = modalProjectDetails[index];
+	modalOverviewCopy.textContent = detail.description;
+	const contentImage = document.createElement('img');
+	contentImage.src = detail.imageUrl;
+	contentImage.alt = detail.alt;
+	modalPlaceholder.replaceChildren(contentImage);
+	const linkType = modalLinkTypes[index];
+	modalSiteLink.hidden = !linkType;
+	modalSiteLink.textContent = linkType === 'figma' ? '피그마 이동' : '사이트 이동';
+	modalSiteLink.href = '#';
+	modalUpButton.hidden = index >= 5;
+	modalContent.scrollTop = 0;
+	projectModal.hidden = false;
+	projectModal.setAttribute('aria-hidden', 'false');
+	requestAnimationFrame(() => {
+		projectModal.classList.add('is-open');
+		window.setTimeout(() => {
+			if (!projectModal.contains(document.activeElement)) modalCloseButton.focus();
+		}, 50);
+	});
+}
+function closeProjectModal() {
+	if (projectModal.hidden || !projectModal.classList.contains('is-open')) return;
+	projectModal.classList.remove('is-open');
+	clearTimeout(modalCloseTimer);
+	modalCloseTimer = window.setTimeout(() => {
+		projectModal.hidden = true;
+		projectModal.setAttribute('aria-hidden', 'true');
+		activeProjectCard?.focus();
+		activeProjectCard = null;
+	}, reducePageMotion.matches ? 0 : 460);
+}
+document.querySelectorAll('.project-card').forEach((card, index) => card.addEventListener('click', (event) => {
+	event.preventDefault();
+	openProjectModal(card, index);
+}));
+modalCloseButton.addEventListener('click', closeProjectModal);
+projectModal.addEventListener('click', (event) => {
+	if (event.target === projectModal) closeProjectModal();
+});
+projectModal.addEventListener('wheel', (event) => {
+	if (!event.target.closest('.modal-content')) event.preventDefault();
+}, { passive: false });
+document.addEventListener('keydown', (event) => {
+	if (projectModal.hidden) return;
+	if (event.key === 'Escape') {
+		event.preventDefault();
+		closeProjectModal();
+		return;
+	}
+	if (event.key !== 'Tab') return;
+	const focusable = [...projectModal.querySelectorAll('button:not([hidden]), a[href]:not([hidden]), .modal-content[tabindex]')];
+	const first = focusable[0];
+	const last = focusable[focusable.length - 1];
+	if (!projectModal.contains(document.activeElement)) {
+		event.preventDefault();
+		first.focus();
+	} else if (event.shiftKey && document.activeElement === first) {
+		event.preventDefault();
+		last.focus();
+	} else if (!event.shiftKey && document.activeElement === last) {
+		event.preventDefault();
+		first.focus();
+	}
+});
+modalSiteLink.addEventListener('click', (event) => {
+	if (modalSiteLink.getAttribute('href') === '#') event.preventDefault();
+});
+modalUpButton.addEventListener('click', () => {
+	modalContent.scrollTo({ top: 0, behavior: reducePageMotion.matches ? 'auto' : 'smooth' });
+});
 // 미연결 링크가 페이지 상단으로 이동하지 않게 안내합니다. 실제 href 연결 시 data-unconfigured를 삭제하세요.
 let noticeTimer;
 document.querySelectorAll('[data-unconfigured]').forEach(link=>link.addEventListener('click',event=>{event.preventDefault();const notice=document.querySelector('.notice');notice.textContent=link.dataset.unconfigured;notice.hidden=false;clearTimeout(noticeTimer);noticeTimer=setTimeout(()=>notice.hidden=true,3500);}));
