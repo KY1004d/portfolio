@@ -78,9 +78,11 @@ const modalProjectDetails = [
 ].map(detail => ({ ...detail, imageUrl: `https://images.unsplash.com/${detail.image}?auto=format&fit=crop&w=1200&h=2700&q=80` }));
 let activeProjectCard = null;
 let modalCloseTimer;
+let returnScrollPosition = { x: 0, y: 0 };
 function openProjectModal(card, index) {
 	clearTimeout(modalCloseTimer);
 	activeProjectCard = card;
+	returnScrollPosition = { x: window.scrollX, y: window.scrollY };
 	modalTitle.textContent = card.querySelector('.project-title').textContent.trim();
 	const detail = modalProjectDetails[index];
 	modalOverviewCopy.textContent = detail.description;
@@ -110,7 +112,8 @@ function closeProjectModal() {
 	modalCloseTimer = window.setTimeout(() => {
 		projectModal.hidden = true;
 		projectModal.setAttribute('aria-hidden', 'true');
-		activeProjectCard?.focus();
+		activeProjectCard?.focus({ preventScroll: true });
+		window.scrollTo(returnScrollPosition.x, returnScrollPosition.y);
 		activeProjectCard = null;
 	}, reducePageMotion.matches ? 0 : 460);
 }
