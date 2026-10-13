@@ -67,14 +67,15 @@ const modalCloseButton = projectModal.querySelector('.modal-close');
 const modalSiteLink = projectModal.querySelector('.modal-site-link');
 const modalUpButton = projectModal.querySelector('.modal-up');
 const modalLinkTypes = ['site', null, 'site', 'figma', 'figma', null, null];
+const projectImagePaths = (folder, prefix, count) => Array.from({ length: count }, (_, index) => `./assets/projects/${folder}/${prefix}${String(index + 1).padStart(2, '0')}.webp`);
 const modalProjectDetails = [
-	{ description: '지역 주민이 필요한 자료와 도서관 소식을 쉽고 빠르게 찾을 수 있도록 정보 구조와 탐색 경험을 개선했습니다.', image: 'photo-1498050108023-c5249f4df085', alt: '웹사이트를 작업하는 노트북 화면' },
-	{ description: '제품의 소재와 사용 장면이 잘 전달되도록 상세페이지의 콘텐츠 흐름과 시각적 위계를 구성했습니다.', image: 'photo-1547658719-da2b51169166', alt: '웹 페이지 디자인이 보이는 모니터' },
-	{ description: '브랜드의 제품과 혜택을 직관적으로 탐색하고 구매까지 이어갈 수 있도록 자사몰 화면을 재구성했습니다.', image: 'photo-1460925895917-afdab827c52f', alt: '데이터와 서비스 화면이 표시된 디지털 대시보드' },
+	{ description: '지역 주민이 필요한 자료와 도서관 소식을 쉽고 빠르게 찾을 수 있도록 정보 구조와 탐색 경험을 개선했습니다.', images: projectImagePaths('banwol', 'ban', 2), background: '#F3F4F5', captionsAfter: ['자료검색 > 추천도서'] },
+	{ description: '제품의 소재와 사용 장면이 잘 전달되도록 상세페이지의 콘텐츠 흐름과 시각적 위계를 구성했습니다.', images: projectImagePaths('amante', 'amante', 14) },
+	{ description: '브랜드의 제품과 혜택을 직관적으로 탐색하고 구매까지 이어갈 수 있도록 자사몰 화면을 재구성했습니다.', images: projectImagePaths('poongnyun', 'pn', 3), background: '#F3F4F5', captionsAfter: ['Home > 베스트', 'Home > 풍년살림'] },
 	{ description: '여행 일정과 숙소 정보를 비교하고 예약하는 주요 흐름을 중심으로 모바일 사용성을 개선했습니다.', image: 'photo-1507238691740-187a5b1d37b8', alt: '모바일 서비스 디자인을 살펴보는 디자이너' },
 	{ description: '생성형 AI 서비스의 성격을 시각 언어로 정리하고 다양한 접점에서 일관되게 사용할 수 있는 브랜드 아이덴티티를 설계했습니다.', image: 'photo-1558655146-d09347e92766', alt: '다채로운 그래픽 디자인 작업물' },
-	{ description: '텍스트 중심 콘텐츠를 짧은 호흡으로 읽을 수 있도록 핵심 문구와 그래픽 요소를 조합했습니다.', image: 'photo-1519389950473-47ba0277781c', alt: '화면을 함께 살펴보는 팀원들' },
-	{ description: '브랜드의 시즌 프로모션과 상품 정보를 빠르게 전달하도록 소셜 미디어용 배너 시리즈를 구성했습니다.', image: 'photo-1497366754035-f200968a6e72', alt: '브랜드 캠페인을 준비하는 업무 공간' }
+	{ description: '텍스트 중심 콘텐츠를 짧은 호흡으로 읽을 수 있도록 핵심 문구와 그래픽 요소를 조합했습니다.', layout: 'horizontal', background: '#768ED0', images: projectImagePaths('texthip', 'texthip', 8) },
+	{ description: '브랜드의 시즌 프로모션과 상품 정보를 빠르게 전달하도록 소셜 미디어용 배너 시리즈를 구성했습니다.', layout: 'horizontal', background: '#F3CF97', images: projectImagePaths('megacoffee', 'mega', 6) }
 ].map(detail => ({ ...detail, imageUrl: `https://images.unsplash.com/${detail.image}?auto=format&fit=crop&w=1200&h=2700&q=80` }));
 let activeProjectCard = null;
 let modalCloseTimer;
@@ -86,18 +87,39 @@ function openProjectModal(card, index) {
 	modalTitle.textContent = card.querySelector('.project-title').textContent.trim();
 	const detail = modalProjectDetails[index];
 	modalOverviewCopy.textContent = detail.description;
-	const contentImage = document.createElement('img');
-	contentImage.src = detail.imageUrl;
-	contentImage.alt = detail.alt;
-	modalPlaceholder.replaceChildren(contentImage);
+	const isHorizontalGallery = detail.layout === 'horizontal';
+	modalPlaceholder.classList.toggle('is-banwol', index === 0);
+	modalPlaceholder.classList.toggle('is-amante', index === 1);
+	modalPlaceholder.classList.toggle('is-poongnyun', index === 2);
+	modalContent.classList.toggle('is-horizontal-gallery', isHorizontalGallery);
+	modalPlaceholder.classList.toggle('is-horizontal-gallery', isHorizontalGallery);
+	modalPlaceholder.style.backgroundColor = detail.background || '';
+	const imagePaths = detail.images || [detail.imageUrl];
+	const contentElements = imagePaths.flatMap((imagePath, imageIndex) => {
+		const image = document.createElement('img');
+		image.src = imagePath;
+		image.alt = detail.alt || `${modalTitle.textContent} 상세 이미지 ${imageIndex + 1}`;
+		if (isHorizontalGallery) image.className = 'modal-gallery-card';
+		const elements = [image];
+		const caption = detail.captionsAfter?.[imageIndex];
+		if (caption) {
+			const captionElement = document.createElement('p');
+			captionElement.className = 'modal-image-caption';
+			captionElement.textContent = caption;
+			elements.push(captionElement);
+		}
+		return elements;
+	});
+	modalPlaceholder.replaceChildren(...contentElements);
 	const linkType = modalLinkTypes[index];
 	modalSiteLink.hidden = !linkType;
 	modalSiteLink.textContent = linkType === 'figma' ? '피그마 이동' : '사이트 이동';
 	modalSiteLink.href = '#';
 	modalUpButton.hidden = index >= 5;
-	modalContent.scrollTop = 0;
 	projectModal.hidden = false;
 	projectModal.setAttribute('aria-hidden', 'false');
+	modalContent.scrollTop = 0;
+	modalContent.scrollLeft = 0;
 	requestAnimationFrame(() => {
 		projectModal.classList.add('is-open');
 		window.setTimeout(() => {
@@ -127,6 +149,11 @@ projectModal.addEventListener('click', (event) => {
 });
 projectModal.addEventListener('wheel', (event) => {
 	if (!event.target.closest('.modal-content')) event.preventDefault();
+}, { passive: false });
+modalContent.addEventListener('wheel', (event) => {
+	if (!modalContent.classList.contains('is-horizontal-gallery') || event.deltaY === 0) return;
+	event.preventDefault();
+	modalContent.scrollLeft += event.deltaY;
 }, { passive: false });
 document.addEventListener('keydown', (event) => {
 	if (projectModal.hidden) return;
