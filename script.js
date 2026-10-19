@@ -45,12 +45,54 @@ document.querySelectorAll('[data-direction]').forEach(button=>button.addEventLis
 document.querySelector('.mobile-projects').addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}});
 new ResizeObserver(()=>{if(moving)finish();else position();}).observe(viewport);
 position();
-let isDragging = false, startX = 0, currentTranslate = 0, dragDelta = 0;
-track.addEventListener('pointerdown', (e) => { if (e.button !== 0 && e.pointerType === 'mouse') return; if (!e.target.closest('.mobile-card')) return; isDragging = true; startX = e.clientX; currentTranslate = -index * step(); track.classList.remove('is-animating'); track.classList.add('is-dragging'); track.setPointerCapture(e.pointerId); });
-track.addEventListener('pointermove', (e) => { if (!isDragging) return; dragDelta = e.clientX - startX; track.style.transform = `translateX(${currentTranslate + dragDelta}px)`; });
-const handlePointerUp = (e) => { if (!isDragging) return; isDragging = false; track.classList.remove('is-dragging'); const s = step(); const movedTarget = Math.round((currentTranslate + dragDelta) / -s); const diff = movedTarget - index; if (diff !== 0) { index = movedTarget; position(true); timer = setTimeout(finish, 480); moving = true; } else { position(true); } dragDelta = 0; try { track.releasePointerCapture(e.pointerId); } catch(err) {} };
-track.addEventListener('pointerup', handlePointerUp);
-track.addEventListener('pointercancel', handlePointerUp);
+const mobileImagePreview = document.querySelector('#mobile-image-preview');
+const mobilePreviewStage = mobileImagePreview.querySelector('.mobile-image-preview-stage');
+const mobilePreviewImage = mobileImagePreview.querySelector('.mobile-image-preview-image');
+let mobilePreviewTrigger = null;
+let mobilePreviewCloseTimer;
+function openMobileImagePreview(image) {
+	clearTimeout(mobilePreviewCloseTimer);
+	mobilePreviewTrigger = image;
+	mobilePreviewImage.src = image.currentSrc || image.src;
+	mobilePreviewImage.alt = image.alt;
+	mobileImagePreview.hidden = false;
+	mobileImagePreview.setAttribute('aria-hidden', 'false');
+	requestAnimationFrame(() => {
+		mobileImagePreview.classList.add('is-open');
+		mobilePreviewStage.focus({ preventScroll: true });
+	});
+}
+function closeMobileImagePreview() {
+	if (mobileImagePreview.hidden || !mobileImagePreview.classList.contains('is-open')) return;
+	mobileImagePreview.classList.remove('is-open');
+	clearTimeout(mobilePreviewCloseTimer);
+	mobilePreviewCloseTimer = window.setTimeout(() => {
+		mobileImagePreview.hidden = true;
+		mobileImagePreview.setAttribute('aria-hidden', 'true');
+		mobilePreviewTrigger?.focus({ preventScroll: true });
+		mobilePreviewTrigger = null;
+	}, reducePageMotion.matches ? 0 : 300);
+}
+track.addEventListener('click', (event) => {
+	const image = event.target.closest('.mobile-card img');
+	if (!image) return;
+	openMobileImagePreview(image);
+});
+track.addEventListener('keydown', (event) => {
+	if (!event.target.matches('.mobile-card img') || (event.key !== 'Enter' && event.key !== ' ')) return;
+	event.preventDefault();
+	openMobileImagePreview(event.target);
+});
+mobileImagePreview.addEventListener('click', (event) => {
+	if (event.target !== mobilePreviewImage) closeMobileImagePreview();
+});
+mobileImagePreview.addEventListener('wheel', (event) => event.preventDefault(), { passive: false });
+document.addEventListener('keydown', (event) => {
+	if (!mobileImagePreview.hidden && event.key === 'Escape') {
+		event.preventDefault();
+		closeMobileImagePreview();
+	}
+});
 // 스크롤 방향 / 현재 섹션에 따른 네비게이션 상태.
 const nav = document.querySelector('.navigation'); const links = [...nav.querySelectorAll('a')]; const sections = links.map(link=>document.querySelector(link.getAttribute('href'))); let previousY = window.scrollY, scheduled=false; function updateNav(){ const y=window.scrollY; const diff=y-previousY; if(y<=8){ nav.classList.remove('is-scrolled','is-up','is-down'); }else if(Math.abs(diff)>2){ if(diff>0){ nav.classList.add('is-scrolled','is-down'); nav.classList.remove('is-up'); }else{ nav.classList.add('is-scrolled','is-up'); nav.classList.remove('is-down'); } } previousY=y; let active=null; sections.forEach(section=>{if(section && section.getBoundingClientRect().top<=window.innerHeight*.38 && (!active || section.offsetTop>active.offsetTop))active=section;}); links.forEach(link=>{if(active && link.hash==='#'+active.id)link.setAttribute('aria-current','location');else link.removeAttribute('aria-current');}); scheduled=false; } window.addEventListener('scroll',()=>{if(!scheduled){scheduled=true;requestAnimationFrame(updateNav);}},{passive:true}); updateNav(); document.querySelector('#year').textContent=new Date().getFullYear();
 // 네비게이션 섹션 이동 시 부드러운 스크롤을 처리합니다.
@@ -64,19 +106,34 @@ const modalOverviewCopy = projectModal.querySelector('#modal-overview-copy');
 const modalContent = projectModal.querySelector('.modal-content');
 const modalPlaceholder = projectModal.querySelector('.modal-placeholder');
 const modalCloseButton = projectModal.querySelector('.modal-close');
+const modalPlanLink = projectModal.querySelector('.modal-plan-link');
 const modalSiteLink = projectModal.querySelector('.modal-site-link');
 const modalUpButton = projectModal.querySelector('.modal-up');
-const modalLinkTypes = ['site', null, 'site', 'figma', 'figma', null, null];
+const modalProjectActions = [
+	{ plan: './assets/projects/banwol/banwol_plan.pdf', site: './assets/projects/banwol/web/index.html', up: true },
+	{ plan: './assets/projects/amante/amante_plan.pdf', up: true },
+	{ plan: './assets/projects/poongnyun/pn_plan.pdf', site: './assets/projects/poongnyun/web/index.html', up: true },
+	{ site: 'https://www.figma.com/design/5DU8NSbO4BcT4DW8Bg0ha3/%EC%95%84%EA%B3%A0%EB%8B%A4-%EC%9D%B8%ED%84%B0%EB%A0%89%EC%85%98?node-id=110-656&t=QDTwNJwTKwoCSYFX-1', siteLabel: '피그마 이동', up: true },
+	{ site: 'https://whitt1201.cafe24.com/', up: true },
+	{ up: true },
+	{ up: true },
+	{},
+	{},
+	{}
+];
 const projectImagePaths = (folder, prefix, count) => Array.from({ length: count }, (_, index) => `./assets/projects/${folder}/${prefix}${String(index + 1).padStart(2, '0')}.webp`);
 const modalProjectDetails = [
-	{ description: '지역 주민이 필요한 자료와 도서관 소식을 쉽고 빠르게 찾을 수 있도록 정보 구조와 탐색 경험을 개선했습니다.', images: projectImagePaths('banwol', 'ban', 2), background: '#F3F4F5', captionsAfter: ['자료검색 > 추천도서'] },
-	{ description: '제품의 소재와 사용 장면이 잘 전달되도록 상세페이지의 콘텐츠 흐름과 시각적 위계를 구성했습니다.', images: projectImagePaths('amante', 'amante', 14) },
-	{ description: '브랜드의 제품과 혜택을 직관적으로 탐색하고 구매까지 이어갈 수 있도록 자사몰 화면을 재구성했습니다.', images: projectImagePaths('poongnyun', 'pn', 3), background: '#F3F4F5', captionsAfter: ['Home > 베스트', 'Home > 풍년살림'] },
-	{ description: '여행 일정과 숙소 정보를 비교하고 예약하는 주요 흐름을 중심으로 모바일 사용성을 개선했습니다.', image: 'photo-1507238691740-187a5b1d37b8', alt: '모바일 서비스 디자인을 살펴보는 디자이너' },
-	{ description: '생성형 AI 서비스의 성격을 시각 언어로 정리하고 다양한 접점에서 일관되게 사용할 수 있는 브랜드 아이덴티티를 설계했습니다.', image: 'photo-1558655146-d09347e92766', alt: '다채로운 그래픽 디자인 작업물' },
-	{ description: '텍스트 중심 콘텐츠를 짧은 호흡으로 읽을 수 있도록 핵심 문구와 그래픽 요소를 조합했습니다.', layout: 'horizontal', background: '#768ED0', images: projectImagePaths('texthip', 'texthip', 8) },
-	{ description: '브랜드의 시즌 프로모션과 상품 정보를 빠르게 전달하도록 소셜 미디어용 배너 시리즈를 구성했습니다.', layout: 'horizontal', background: '#F3CF97', images: projectImagePaths('megacoffee', 'mega', 6) }
-].map(detail => ({ ...detail, imageUrl: `https://images.unsplash.com/${detail.image}?auto=format&fit=crop&w=1200&h=2700&q=80` }));
+	{ description: '기존 웹사이트의 복잡한 메뉴 구조와 답답했던 노후 GUI를 깔끔하게 정돈하여, 지역 주민들이 필요한 정보에 쉽고 빠르게 접근할 수 있도록 접근성과 사용성을 개선했습니다. <span class="banp">UI/UX 디자인은 <b>100% 자체 작업</b>으로 진행</span>했으며, <span class="banp">퍼블리싱/프론트엔드 코딩은 <b>100% AI</b> 툴을 활용</span>하였습니다.', images: projectImagePaths('banwol', 'ban', 2), background: '#F3F4F5', captionsAfter: ['자료검색 > 추천도서'] },
+	{ description: '해당 차렵이불 제품이 가진 고유의 매력을 직관적으로 전달하는 데 집중했습니다. 제품 특유의 고급스러운 분위기와 무드에 맞춰 시각적 일관성을 확보하고, 미적 완성도를 높여 고객의 시선을 사로잡는 상세페이지 레이아웃을 완성했습니다.', images: projectImagePaths('amante', 'amante', 14) },
+	{ description: '기존의 단조로웠던 비주얼과 제품 소구점이 부족했던 정보 구조를 다듬어, 구매 전환과 브랜드 각인에 최적화된 콘텐츠 흐름을 구축했습니다. 풍년살림만의 친근하면서도 신뢰도 높은 분위기를 시각화하여 브랜드의 가치가 자연스럽게 전달되도록 구현했습니다. UI/UX 디자인은 100% 자체 작업으로 진행했으며, 퍼블리싱/프론트엔드 코딩은 AI 툴을 활용하였습니다.', images: projectImagePaths('poongnyun', 'pn', 3), background: '#F3F4F5', captionsAfter: ['Home > 베스트', 'Home > 풍년살림'] },
+	{ description: '사용자 리서치를 바탕으로 기존 앱의 UX 취약점을 보완하고, 예약 탐색 흐름이 매끄럽게 이어지도록 레이아웃을 다듬었습니다. 직관적인 UI 요소로 정보의 명확성을 향상시키는 한편, 브랜드 고유의 톤앤매너를 시각화한 GUI 디자인으로 완성도 높은 사용자 경험을 구현했습니다.', image: 'photo-1507238691740-187a5b1d37b8', alt: '모바일 서비스 디자인을 살펴보는 디자이너' },
+	{ description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat, sapien at tincidunt tincidunt, lectus sem consequat neque, vitae posuere justo erat sed nibh.', images: projectImagePaths('aube', 'aube', 1) },
+	{ description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat, sapien at tincidunt tincidunt, lectus sem consequat neque, vitae posuere justo erat sed nibh.', images: projectImagePaths('mdesk', 'desk', 6) },
+	{ description: 'AI 기술이 급변하는 시대적 트렌드에 맞춰 차세대 AI 생성형 플랫폼 미레브의 미래지향적 브랜드 가치를 구축했습니다.<br>플랫폼이 추구하는 핵심 비전과 지향점을 직관적이고 세련된 심볼로 형상화하여, 브랜드 고유의 정체성이 돋보이도록 디자인했습니다.', image: 'photo-1558655146-d09347e92766', alt: '다채로운 그래픽 디자인 작업물' },
+	{ description: '도파민 중심의 미디어에서 벗어나 독서와 아날로그 취향을 공유하는 MZ세대의 새로운 트렌드 <span class="txtp">텍스트힙</span>을 소개하는 컨텐츠입니다.<br>흥미를 끌 수 있는 메시지 흐름을 잡고, 가독성 높은 레이아웃과 감각적인 비주얼을 더해 주제가 직관적으로 보이도록 작업했습니다.', layout: 'horizontal', background: '#768ED0', images: projectImagePaths('texthip', 'texthip', 8) },
+	{ description: '브랜드의 시즌 프로모션과 상품 정보를 빠르게 전달하도록 소셜 미디어용 배너 시리즈를 구성했습니다.', layout: 'horizontal', background: '#F3CF97', images: projectImagePaths('megacoffee', 'mega', 6) },
+	{ description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc feugiat, sapien at tincidunt tincidunt, lectus sem consequat neque, vitae posuere justo erat sed nibh.', layout: 'poster', background: '#F6F6F6', images: ['./assets/projects/poster/poster01.webp', './assets/projects/poster/poster02.png', './assets/projects/poster/poster03.webp', './assets/projects/poster/poster04.jpg', './assets/projects/poster/poster05.png', './assets/projects/poster/poster06.png', './assets/projects/poster/poster07.webp', './assets/projects/poster/poster08.webp', './assets/projects/poster/poster09.webp'] }
+].map(detail => detail.image ? ({ ...detail, imageUrl: `https://images.unsplash.com/${detail.image}?auto=format&fit=crop&w=1200&h=2700&q=80` }) : detail);
 let activeProjectCard = null;
 let modalCloseTimer;
 let returnScrollPosition = { x: 0, y: 0 };
@@ -86,11 +143,14 @@ function openProjectModal(card, index) {
 	returnScrollPosition = { x: window.scrollX, y: window.scrollY };
 	modalTitle.textContent = card.querySelector('.project-title').textContent.trim();
 	const detail = modalProjectDetails[index];
-	modalOverviewCopy.textContent = detail.description;
-	const isHorizontalGallery = detail.layout === 'horizontal';
+	modalOverviewCopy.innerHTML = detail.description;
+	const isHorizontalGallery = detail.layout === 'horizontal' || detail.layout === 'poster';
+	const isPosterGallery = detail.layout === 'poster';
 	modalPlaceholder.classList.toggle('is-banwol', index === 0);
 	modalPlaceholder.classList.toggle('is-amante', index === 1);
+	modalPlaceholder.classList.toggle('is-mdesk', index === 5);
 	modalPlaceholder.classList.toggle('is-poongnyun', index === 2);
+	modalPlaceholder.classList.toggle('is-poster-gallery', isPosterGallery);
 	modalContent.classList.toggle('is-horizontal-gallery', isHorizontalGallery);
 	modalPlaceholder.classList.toggle('is-horizontal-gallery', isHorizontalGallery);
 	modalPlaceholder.style.backgroundColor = detail.background || '';
@@ -110,12 +170,21 @@ function openProjectModal(card, index) {
 		}
 		return elements;
 	});
-	modalPlaceholder.replaceChildren(...contentElements);
-	const linkType = modalLinkTypes[index];
-	modalSiteLink.hidden = !linkType;
-	modalSiteLink.textContent = linkType === 'figma' ? '피그마 이동' : '사이트 이동';
-	modalSiteLink.href = '#';
-	modalUpButton.hidden = index >= 5;
+	if (isPosterGallery) {
+		const posterRow = document.createElement('div');
+		posterRow.className = 'modal-poster-row';
+		posterRow.append(...contentElements);
+		modalPlaceholder.replaceChildren(posterRow);
+	} else {
+		modalPlaceholder.replaceChildren(...contentElements);
+	}
+	const actions = modalProjectActions[index] || {};
+	modalPlanLink.hidden = !actions.plan;
+	modalPlanLink.href = actions.plan || '#none';
+	modalSiteLink.hidden = !actions.site;
+	modalSiteLink.textContent = actions.siteLabel || '사이트 이동';
+	modalSiteLink.href = actions.site || '#none';
+	modalUpButton.hidden = !actions.up;
 	projectModal.hidden = false;
 	projectModal.setAttribute('aria-hidden', 'false');
 	modalContent.scrollTop = 0;
@@ -178,7 +247,10 @@ document.addEventListener('keydown', (event) => {
 	}
 });
 modalSiteLink.addEventListener('click', (event) => {
-	if (modalSiteLink.getAttribute('href') === '#') event.preventDefault();
+	if (modalSiteLink.getAttribute('href') === '#none') event.preventDefault();
+});
+modalPlanLink.addEventListener('click', (event) => {
+	if (modalPlanLink.getAttribute('href') === '#none') event.preventDefault();
 });
 modalUpButton.addEventListener('click', () => {
 	modalContent.scrollTo({ top: 0, behavior: reducePageMotion.matches ? 'auto' : 'smooth' });

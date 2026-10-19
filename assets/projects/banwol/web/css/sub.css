@@ -1,0 +1,205 @@
+/* 서브페이지*/
+.sub-container {
+  display: flex;
+}
+.sub-sidebar {
+  padding-left: 1rem;
+  padding-top: 6rem;
+}
+.sub-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.sub-menu-item {
+  display: flex;
+  align-items: center;
+  width: 18rem;
+  height: 4.7rem;
+  padding: 1.4rem;
+  border-radius: 0.4rem;
+
+  background-color: var(--color-white);
+  border: solid 0.1rem var(--color-gray-500);
+  font: var(--font-m);
+  color: var(--color-sub-gray-03);
+}
+.sub-menu-item.active {
+  background-color: var(--color-secondary);
+  border: none;
+  font: 700 1.6rem/1.9rem 'pretendard', sans-serif;
+  color: var(--color-white);
+}
+
+/* 우측 콘텐츠 영역 */
+.sub-content {
+  flex: 1;
+  padding-left: 8rem;
+  padding-top: 6rem;
+}
+.sub-title {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  font: var(--font-sub-h2);
+}
+.sub-title .depth1 {
+  color: var(--color-sub-gray-01);
+}
+.sub-title .divider {
+  display: block;
+}
+.sub-title .depth2 {
+  color: var(--color-gray-900);
+}
+
+
+.sub-tab-wrapper {
+  margin-top: 3rem;
+  position: relative;
+}
+.sub-tab-list {
+  display: flex;
+  gap: 1rem;
+}
+.sub-tab-list .tab-item a {
+  display: block;
+  padding: 1rem 0.9rem;
+  font: var(--font-sub-tab);
+  color: var(--color-gray-800);
+  position: relative;
+  z-index: 1;
+}
+.sub-tab-list .tab-item.active a {
+  color: var(--color-secondary);
+}
+.sub-tab-list .tab-item.active a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 0.4rem solid var(--color-secondary);
+}
+.tab-bottom-line {
+  width: 100%;
+  border-bottom: 0.1rem solid var(--color-gray-600);
+  margin-top: -0.1rem;
+}
+
+/* View 버튼 */
+.view-btn-wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-top: 0.8rem;
+}
+.btn-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.8rem;
+  height: 2.8rem;
+  background: transparent;
+  cursor: pointer;
+}
+.btn-view-left {
+  border: 0.1rem solid var(--color-gray-600);
+  border-radius: 0.3rem 0 0 0.3rem;
+  border-right: 0;
+}
+.btn-view-right {
+  border: 0.1rem solid var(--color-gray-600);
+  border-radius: 0 0.3rem 0.3rem 0;
+}
+
+/* 북리스트 영역 */
+.sub-book-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+.sub-book-item {
+  display: flex;
+  padding-bottom: 3rem;
+  border-bottom: 0.1rem solid var(--color-gray-200);
+  margin-bottom: 3rem;
+}
+.sub-book-item .book-cover {
+  width: 12rem;
+  height: 17.3rem;
+  flex-shrink: 0;
+  border-radius: 0.4rem;
+  border: solid 0.1rem var(--color-img-outline, #e5e5e5);
+  overflow: hidden;
+}
+.sub-book-item .book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sub-book-item .book-detail {
+  margin-left: 3rem;
+  padding-top: 2.6rem;
+  display: flex;
+  flex-direction: column;
+}
+.sub-book-item .title {
+  font: var(--font-sub-book-title);
+  color: var(--color-gray-900);
+}
+.sub-book-item .subtitle {
+  font: var(--font-sub-book-aux);
+  color: var(--color-gray-800);
+  padding-top: 0.2rem;
+}
+.sub-book-item .desc {
+  margin-top: 1.6rem;
+  font: var(--font-sub-book-desc);
+  color: var(--color-gray-800);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.sub-book-item .date {
+  margin-top: 1.6rem;
+  font: var(--font-sub-book-desc);
+  color: #c3c3c3;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  margin-bottom: 9.8rem;
+  gap: 2rem;
+}
+.btn-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  border: solid 0.1rem var(--color-gray-500);
+  border-radius: 50%;
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+.btn-page img {
+  display: block;
+}
+.page-numbers {
+  display: flex;
+}
+.page-num {
+  padding: 0 1rem;
+  font: var(--font-sub-book-aux);
+  color: var(--color-gray-700);
+  display: inline-block;
+}
+.page-num.active {
+  color: var(--color-gray-900);
+}

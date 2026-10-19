@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>풍년살림</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/font.css">
+<link rel="stylesheet" href="./css/var.css">
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/main.css">
+<script src="./js/script.js" defer></script>
+<script src="./js/header.js" defer></script>
+</head>
+<body>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <symbol id="heart-icon" viewBox="0 0 28.08 25.92">
+        <path fill="#fff" d="M27.4,5.31c-.44-1.04-1.06-1.98-1.85-2.77-.79-.79-1.71-1.43-2.73-1.86C21.77.23,20.63,0,19.49,0,17.89,0,16.33.45,14.97,1.31c-.32.2-.63.43-.93.67-.29-.24-.6-.47-.93-.67C11.76.45,10.19,0,8.59,0,7.44,0,6.32.23,5.26.68c-1.02.44-1.94,1.06-2.73,1.86-.79.79-1.41,1.73-1.85,2.77-.45,1.08-.68,2.23-.68,3.41,0,1.12.22,2.28.66,3.46.37.99.89,2.01,1.57,3.05,1.07,1.64,2.53,3.35,4.35,5.08,3.02,2.87,6,4.85,6.13,4.93l.77.51c.34.22.78.22,1.12,0l.77-.51c.13-.08,3.11-2.06,6.13-4.93,1.82-1.73,3.29-3.44,4.35-5.08.67-1.03,1.2-2.06,1.57-3.05.44-1.18.66-2.34.66-3.46,0-1.18-.23-2.33-.68-3.41ZM14.04,23.1S2.47,15.46,2.47,8.72c0-3.41,2.74-6.18,6.12-6.18,2.38,0,4.44,1.37,5.45,3.36,1.01-2,3.07-3.36,5.45-3.36,3.38,0,6.12,2.77,6.12,6.18,0,6.74-11.57,14.38-11.57,14.38Z"/>
+    </symbol>
+</svg>
+
+<!-- Header -->
+<header>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar__inner container">
+            <p class="top-bar__notice">
+                <img src="./img/ic-notice.png" alt="공지사항" class="top-bar__notice-icon">
+                <span class="top-bar__notice-title">공지사항</span>
+                <a href="#" class="top-bar__notice-text" aria-live="polite">피오레 통3중 압력솥 안전기준 부적합 상품 회수 안내</a>
+            </p>
+            <nav class="top-bar__user">
+                <a href="#" class="top-bar__user-link">마이페이지</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">로그인</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">회원가입</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">기업홈페이지</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="main-header__inner container">
+            <div class="main-header__left">
+                <h1 class="header__logo">
+                    <a href="#">
+                        <img src="./img/rogo.jpg" alt="풍년살림">
+                    </a>
+                </h1>
+                
+                <form class="search-bar">
+                    <input type="text" class="search-bar__input" placeholder="검색어를 입력하세요">
+                    <button type="submit" class="search-bar__btn">
+                        <img src="./img/ic-search.png" alt="검색">
+                    </button>
+                </form>
+
+                <div class="rank">
+                    <span class="rank__num">1</span>
+                    <a href="#" class="rank__text">텀블러</a>
+                </div>
+            </div>
+
+            <nav class="header__utils">
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-user.png" alt="마이페이지">
+                </a>
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-heart.png" alt="찜목록">
+                </a>
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-cart.png" alt="장바구니">
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- GNB -->
+    <nav class="gnb">
+        <div class="gnb__inner container">
+            <div class="gnb__category-btn">
+                <img src="./img/ic-category.png" alt="" class="gnb__hamburger-icon">
+                <span class="gnb__category-text">카테고리</span>
+            </div>
+
+            <ul class="gnb__list">
+                <li class="gnb__item"><a href="./index_sub-2.html" class="gnb__link">풍년살림</a></li>
+                <li class="gnb__item"><a href="./index_sub.html" class="gnb__link">베스트</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">신상품</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">이벤트</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">압력솥</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">냄비</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">프라이팬</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">가전</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">주방소품</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">제휴문의</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">고객센터</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- # Header -->
+
+<!-- Main -->
+<main>
+<!-- Visual -->
+    <section class="visual">
+
+        <!-- Slide Wrapper -->
+        <div class="visual__slides">
+            <!-- Slide 1 -->
+            <a href="#" class="visual__slide visual__slide--01 visual__slide--active">
+                <div class="visual__container container">
+                    <div class="visual__content">
+                        <p class="visual__sub">Premium Line up</p>
+                        <h3 class="visual__title">프리미엄 스텐의 기준<br>백화점 입점 라인 파비움</h3>
+                        <span class="visual__link">자세히 보기</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Slide 2 -->
+            <a href="#" class="visual__slide visual__slide--02">
+                <div class="visual__container container">
+                    <div class="visual__content">
+                        <p class="visual__sub">신선함은 오래, 활용은 더 넓게</p>
+                        <h3 class="visual__title"><span class="highlight-sec">보관과 조리,</span> 하나로 끝내다!<br>위더스 프레시 밧드</h3>
+                        <span class="visual__link">자세히 보기</span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Slide 3 -->
+            <a href="#" class="visual__slide visual__slide--03">
+                <div class="visual__container container">
+                    <div class="visual__content">
+                        <p class="visual__sub">온소 든든한 고압 압력솥 IH</p>
+                        <h3 class="visual__title"><span class="highlight-red">2.2 초고압</span>으로<br>더욱 찰지고 맛있는 한 끼</h3>
+                        <span class="visual__link">자세히 보기</span>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <!-- # Slide Wrapper -->
+
+        <!-- Controller Box (Container 기준 정렬용) -->
+        <div class="slider-controls container">
+            <!-- button -->
+            <button type="button" class="slider-btn slider-btn--visual slider-btn--prev" aria-label="이전 슬라이드">
+                <img src="./img/left-arrow.png" alt="">
+            </button>
+            <button type="button" class="slider-btn slider-btn--visual slider-btn--next" aria-label="다음 슬라이드">
+                <img src="./img/right-arrow.png" alt="">
+            </button>
+        </div>
+
+        <!-- Indicator -->
+        <div class="visual__indicator">
+            <button type="button" class="visual__dot visual__dot--active" aria-label="1번 슬라이드"></button>
+            <button type="button" class="visual__dot" aria-label="2번 슬라이드"></button>
+            <button type="button" class="visual__dot" aria-label="3번 슬라이드"></button>
+        </div>
+        <!-- # Indicator -->
+    </section>
+    <!-- # Visual -->
+    
+    <!-- Quick Menu -->
+    <section class="quick">
+        <div class="quick__inner">
+            <ul class="quick__item">
+
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-01.jpg" alt="">
+                    </div>
+                    <span>9,900<br>특가</span>
+                </a></li>
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-02.jpg" alt="">
+                    </div>
+                    <span>풍년꿀밥</span>
+                </a></li>
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-03.jpg" alt="">
+                    </div>
+                    <span>기획전</span>
+                </a></li>
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-04.jpg" alt="">
+                    </div>
+                    <span>쿠폰/혜택</span>
+                </a></li>
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-05.jpg" alt="">
+                    </div>
+                    <span>부품</span>
+                </a></li>
+                <li><a href="#">
+                    <div class="quick-img-box">
+                        <img src="./img/quick-06.png" alt="">
+                    </div>
+                    <span>대량구매</span>
+                </a></li>
+
+            </ul>
+        </div>
+    </section>
+    <!-- # Quick Menu -->
+
+    <!-- Promotions -->
+    <section class="promo">
+        <div class="promo__inner container">
+            
+            <!-- 1. MD Pick Section -->
+            <article class="md-pick">
+                <h2 class="md-pick__title">MD가 추천하는 상품!</h2>
+
+                <!-- Tab Buttons -->
+                <div class="md-pick__tabs">
+                    <button type="button" class="md-pick__tab md-pick__tab--active">
+                        <img src="./img/md-tab-01.jpg" alt="" class="md-pick__tab-img">
+                        <svg class="md-pick__arrow" width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M2.5 2.5L10 15.5L17.5 2.5H2.5Z" fill="#333" stroke="#333" stroke-width="3" stroke-linejoin="round"/>
+                            <path d="M4 2L10 12.5L16 2H4Z" fill="#333" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <button type="button" class="md-pick__tab">
+                        <img src="./img/md-tab-02.jpg" alt="" class="md-pick__tab-img">
+                    </button>
+                </div>
+
+                <!-- Goods Layout -->
+                <div class="md-pick__goods">
+                    <!-- Big Banner Card -->
+                    <div class="product-card product-card--large">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb-large">
+                                <img src="./img/md-item-01.jpg" alt="">
+                                <p class="product-card__caption">3중 신선케어로 최대 50일까지 신선보관!</p>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Small Product Card 1 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/md-item-02.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">PN 핸디 전기밥솥 블랑(1-2인용)</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">40%</span>
+                                    <strong class="product-card__price">16,500원</strong>
+                                    <del class="product-card__original">27,500원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Small Product Card 2 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/md-item-03.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">[붕규산유리 사용, 열에 강한] PN 유리 물병 1.8L</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">40%</span>
+                                    <strong class="product-card__price">16,500원</strong>
+                                    <del class="product-card__original">27,500원</del>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- More Button -->
+                <a href="#" class="more-btn">
+                    <span>전체 보기</span>
+                    <svg viewBox="0 0 17.97 14.84" aria-hidden="true">
+                        <path d="M10.55,13.42l6-6L10.55,1.41M15.19,7.42H1" fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2"/>
+                    </svg>
+                </a>
+            </article>
+
+            <!-- 2. Hot Deal Section -->
+            <article class="hotdeal">
+                <h2 class="hotdeal__title">
+                    오늘의 핫딜
+                    <img src="./img/ic-time.png" alt="" class="hotdeal__icon">
+                </h2>
+
+                <div class="hotdeal__timer" role="timer" aria-label="핫딜 종료까지 남은 시간">19:57:20</div>
+
+                <!-- Goods Grid -->
+                <div class="hotdeal__goods">
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/hot-item-01.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">PN 코지 전기밥솥(그린/핑크)</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">40%</span>
+                                    <strong class="product-card__price">16,500원</strong>
+                                    <del class="product-card__original">27,500원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/hot-item-02.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">[국산/BPA FREE] 꾸노 따끈한끼 밥용기(전자레인지 사용가능!)</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">40%</span>
+                                    <strong class="product-card__price">16,500원</strong>
+                                    <del class="product-card__original">27,500원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/hot-item-03.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">[더 오래, 더 신선하게] PN 투명 밀폐 쌀통</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">50%</span>
+                                    <strong class="product-card__price">6,000원</strong>
+                                    <del class="product-card__original">12,000원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/hot-item-04.jpg" alt="">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">[국산/친환경] PN 항균슈가도마</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">30%</span>
+                                    <strong class="product-card__price">17,500원</strong>
+                                    <del class="product-card__original">25,000원</del>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
+                <!-- More Button -->
+                <a href="#" class="more-btn">
+                    <span>전체 보기</span>
+                    <svg viewBox="0 0 17.97 14.84" aria-hidden="true">
+                        <path d="M10.55,13.42l6-6L10.55,1.41M15.19,7.42H1" fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2"/>
+                    </svg>
+                </a>
+            </article>
+
+        </div>
+    </section>
+    <!-- # Promotions -->
+     
+    <!-- Category Best -->
+    <section class="best-items">
+        <div class="best-items__inner container">
+            <h2 class="best-items__title">카테고리 별 베스트</h2>
+
+            <!-- Category Tab List -->
+            <ul class="best-items__categories">
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn best-items__cat-btn--active">베스트</button>
+                </li>
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn">압력솥</button>
+                </li>
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn">냄비</button>
+                </li>
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn">프라이팬</button>
+                </li>
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn">가전</button>
+                </li>
+                <li class="best-items__cat-item">
+                    <button type="button" class="best-items__cat-btn">주방소품</button>
+                </li>
+            </ul>
+
+            <!-- Product List -->
+            <div class="best-items__goods-wrap">
+                <div class="best-items__viewport">
+                <div class="best-items__goods">
+                    <!-- Product 01 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/best-item-01.jpg" alt="메뉴명 프라이팬 냄비 밥솥">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">온소 든든한 고압 압력솥 IH</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">33%</span>
+                                    <strong class="product-card__price">129,000원</strong>
+                                    <del class="product-card__original">192,000원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Product 02 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/best-item-02.jpg" alt="마레 히트팬 IH">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">(국내생산!)마레 히트팬 IH</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">15%</span>
+                                    <strong class="product-card__price">23,900원</strong>
+                                    <del class="product-card__original">28,000원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Product 03 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/best-item-03.jpg" alt="꾸노 보닝 토스터+주전자 SET">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">꾸노 보닝 토스터+주전자 SET</p></a>
+                                <div class="product-card__price-box">
+                                    <strong class="product-card__price">69,800원</strong>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Product 04 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb">
+                                <img src="./img/best-item-04.jpg" alt="몽꿈떼 스튜팟">
+                            </div>
+                        </a>
+                            <div class="product-card__info">
+                                <a href="#" class="product-card__title-link"><p class="product-card__title">[무쇠주물] 몽꿈떼 스튜팟 20cm (쿨그레이)</p></a>
+                                <div class="product-card__price-box">
+                                    <span class="product-card__discount">35%</span>
+                                    <strong class="product-card__price">52,900원</strong>
+                                    <del class="product-card__original">81,600원</del>
+                                </div>
+                            </div>
+                    </div>
+
+                    <!-- Product 05 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb"><img src="./img/best-item-05.jpg" alt="마레 모아 프루티 핸들 프라이팬"></div>
+                        </a>
+                        <div class="product-card__info">
+                            <a href="#" class="product-card__title-link"><p class="product-card__title">마레 모아 프루티 핸들 프라이팬 IH (24cm/28cm)</p></a>
+                            <div class="product-card__price-box">
+                                <span class="product-card__discount">42%</span>
+                                <strong class="product-card__price">25,900원</strong>
+                                <del class="product-card__original">45,000원</del>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 06 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb"><img src="./img/best-item-06.jpg" alt="만능 에그보일러"></div>
+                        </a>
+                        <div class="product-card__info">
+                            <a href="#" class="product-card__title-link"><p class="product-card__title">PN 스텐 만능 에그보일러 (계란/야채/만두찜기)</p></a>
+                            <div class="product-card__price-box">
+                                <span class="product-card__discount">39%</span>
+                                <strong class="product-card__price">37,900원</strong>
+                                <del class="product-card__original">62,000원</del>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 07 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb"><img src="./img/best-item-07.jpg" alt="무균열 무흡수 뚝배기"></div>
+                        </a>
+                        <div class="product-card__info">
+                            <a href="#" class="product-card__title-link"><p class="product-card__title">[여주 도자기] 무균열 무흡수 뚝배기 브리에 뉴 레브팟</p></a>
+                            <div class="product-card__price-box">
+                                <span class="product-card__discount">52%</span>
+                                <strong class="product-card__price">39,900원</strong>
+                                <del class="product-card__original">84,000원</del>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product 08 -->
+                    <div class="product-card">
+                        <button type="button" class="product-card__favorite" aria-label="찜하기">
+                            <svg aria-hidden="true"><use href="#heart-icon"></use></svg>
+                        </button>
+                        <a href="#" class="product-card__image-link">
+                            <div class="product-card__thumb"><img src="./img/best-item-08.jpg" alt="마레 궁중팬 28cm"></div>
+                        </a>
+                        <div class="product-card__info">
+                            <a href="#" class="product-card__title-link"><p class="product-card__title">[단독판매/국산] 마레 풍년살림 프라이팬/궁중팬 (28cm)</p></a>
+                            <div class="product-card__price-box">
+                                <span class="product-card__discount">35%</span>
+                                <strong class="product-card__price">14,900원</strong>
+                                <del class="product-card__original">23,000원</del>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                </div>
+                <div class="slider-controls">
+                    <button type="button" class="slider-btn slider-btn--best slider-btn--prev-best" aria-label="이전 상품 보기">
+                        <img src="./img/left-arrow.png" alt="">
+                    </button>
+                    <button type="button" class="slider-btn slider-btn--best slider-btn--next-best" aria-label="다음 상품 보기">
+                        <img src="./img/right-arrow.png" alt="">
+                    </button>
+                </div>
+            </div>
+            
+            <!-- More Button -->
+            <a href="#" class="more-btn">
+                <span>전체 보기</span>
+                <svg viewBox="0 0 17.97 14.84" aria-hidden="true">
+                    <path d="M10.55,13.42l6-6L10.55,1.41M15.19,7.42H1" fill="none" stroke="currentColor" stroke-linecap="square" stroke-width="2"/>
+                </svg>
+            </a>
+        </div>
+    </section>
+    <!-- # Category Best -->
+     
+    <!-- Events -->
+    <section class="events">
+        <div class="events__inner container">
+
+            <h2 class="events__title">이벤트</h2>
+            <div class="events__item">
+                
+                <!-- 01번 이벤트 카드 -->
+                <div class="events-card">
+                    <a href="#">
+                        <img src="./img/event-01.jpg" alt="">
+                        <div class="events-card__text">
+                            <span class="events-card__sub">회원가입시 추천인 입력하면</span>
+                            <strong class="events-card__main">가입자와 추천인 모두 <span class="highlight">1,000P</span>를 드려요</strong>
+                        </div>
+                    </a>
+                </div>
+
+                <!-- 02번 이벤트 카드 -->
+                <div class="events-card">
+                    <a href="#">
+                        <img src="./img/event-02.jpg" alt="">
+                        <div class="events-card__text">
+                            <span class="events-card__sub">새 것처럼 반짝반짝!</span>
+                            <strong class="events-card__main">스테인리스 사용법, 어렵지 않아요</strong>
+                        </div>
+                    </a>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+    <!-- # Events -->
+</main>
+<!-- # Main -->
+
+<!-- Footer -->
+<footer>
+    <div class="footer__inner container">
+        
+        <!-- Left Area -->
+        <div class="footer__left">
+            <h1 class="footer__logo">
+                <img src="./img/rogo.jpg" alt="풍년살림">
+            </h1>
+
+            <ul class="footer__policy-list">
+                <li><a href="#" class="footer__policy-item footer__policy-item--bold">개인정보처리방침</a></li>
+                <li><a href="#" class="footer__policy-item">서비스이용약관</a></li>
+                <li><a href="#" class="footer__policy-item">이메일무단수집거부</a></li>
+                <li><a href="#" class="footer__policy-item">사업자정보확인</a></li>
+                <li><a href="#" class="footer__policy-item">제품소개</a></li>
+            </ul>
+
+            <address class="footer__address">
+                <p class="footer__address-row">15613 경기 안산시 단원구 별망로 620 (초지동) ㈜PN풍년</p>
+                <p class="footer__address-row">
+                    <span>대표: 유재원</span>
+                    <span>개인정보보호책임자: 배성수</span>
+                    <span>주식회사 PN풍년</span>
+                </p>
+                <p class="footer__address-row">
+                    <span>사업자등록번호: 134-81-08319</span>
+                    <span>통신판매번호: 제 2011-경기안산-0048 호</span>
+                </p>
+            </address>
+
+            <div class="footer__info">
+                <p class="footer__info-row">
+                    <span>TEL: 031-491-2965</span>
+                    <span>FAX: 031-491-2815E</span>
+                    <span>EMail: web@pn.co.kr</span>
+                </p>
+                <p class="footer__copyright">Copyright © PN POONGNYUN. All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Center Area -->
+        <div class="footer__center">
+            <div class="footer__cs-group">
+                <h2 class="footer__cs-title">고객yes센터</h2>
+                <strong class="footer__cs-tel">1588-9717</strong>
+
+                <div class="footer__cs-buttons">
+                    <a href="#" class="footer__cs-btn">1:1문의</a>
+                    <a href="#" class="footer__cs-btn">자주 묻는 질문</a>
+                </div>
+
+                <div class="footer__cs-hours">
+                    <p class="footer__cs-hours-row">
+                        <span>평일: 09:00 ~ 17:30</span>
+                        <span>점심시간: 12:00 ~ 13:00</span>
+                    </p>
+                    <p class="footer__cs-hours-row">
+                        <span>본사: 11:40 ~ 13:40</span>
+                        <span>주말/공휴일 휴무</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Area -->
+        <div class="footer__right">
+            <ul class="footer__sns-list">
+                <li><a href="#"><img src="./img/sns-01.png" alt="블로그"></a></li>
+                <li><a href="#"><img src="./img/sns-02.png" alt="페이스북"></a></li>
+                <li><a href="#"><img src="./img/sns-03.png" alt="인스타그램"></a></li>
+                <li><a href="#"><img src="./img/sns-04.png" alt="유튜브"></a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<!-- # Footer -->
+
+</body>
+</html>

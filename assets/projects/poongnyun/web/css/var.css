@@ -1,0 +1,42 @@
+:root {
+    --color-primary:    #9CA924;
+    --color-primary-02: #B7C726;
+    --color-secondary-01:  #E07A3F;
+    --color-secondary-02:  #C7652C;
+
+    --color-gray-01:   #333;
+    --color-gray-02:   #9A9A9A;
+    --color-red:    #FF0000;
+    --color-white:  #fff;   
+}
+
+:root {
+    --font-top: 1.4rem/1.7rem 'pretendard', sans-serif;
+    --font-category: 700 1.8rem/2.1rem 'pretendard', sans-serif;
+    --font-banner-title: 700 5.2rem/6.2rem 'pretendard', sans-serif;
+    --font-banner-sub: 600 2.4rem/2.9rem 'pretendard', sans-serif;
+    --font-quick: 700 1.8rem/2.4rem 'pretendard', sans-serif;
+    --font-body-h2: 800 3.2rem/3.8rem 'pretendard', sans-serif;
+    --font-body-m: 600 1.8rem/2.1rem 'pretendard', sans-serif;
+    --font-body: 600 1.8rem/2.4rem 'pretendard', sans-serif;
+    --font-body-price: 600 1.4rem/1.7rem 'pretendard', sans-serif;
+
+    --font-event-title: 700 2.6rem/3.1rem 'pretendard', sans-serif;
+    --font-event-sub: 500 2rem/2.4rem 'pretendard', sans-serif;
+
+    --font-foot: 400 1.4rem/1.7rem 'pretendard', sans-serif;
+
+    --font-title: 600 3.2rem/4.3rem 'pretendard', sans-serif;
+
+    --font-sub-h2: 700 2rem/2.4rem 'pretendard', sans-serif;
+    --font-sub-count: 700 1.6rem/1.9rem 'pretendard', sans-serif;
+    --font-sub-count2: 700 1.6rem/1.9rem 'pretendard', sans-serif;
+}
+
+:root {
+    --font-sub2-body: 400 1.8rem/3.2rem 'pretendard', sans-serif;
+    --font-sub2-body2: 400 1.8rem/2.6rem 'pretendard', sans-serif;
+    --font-sub2-title: 700 2rem/2.4rem 'pretendard', sans-serif;
+    --font-sub2-sub: 600 1.8rem/2.1rem 'pretendard', sans-serif;
+    --font-sub2-history: 500 1.6rem/1.9rem 'pretendard', sans-serif;
+}

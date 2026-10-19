@@ -1,0 +1,50 @@
+:root {
+    /* main + sub */
+    --color-primary: #4923D0;
+    --color-secondary: #8560F6;
+    --color-img-outline: rgba(0, 0, 0, 0.06); 
+    --color-gray-900: #141414; 
+    --color-gray-800: #787878; 
+    --color-gray-700: #B6B6B6; 
+    --color-gray-600: #DBDBDB; 
+    --color-gray-500: #E6E6E6; 
+    --color-gray-400: #F6F6F6; 
+    --color-gray-300: #FAFAFA; 
+    --color-gray-200:   #F0F0F0;
+    --color-white: #FFF; 
+    
+    /* sub */
+    --color-sub-gray-03: #40474D; 
+    --color-sub-gray-02: #838091; 
+    --color-sub-gray-01: #AAACB5; 
+}
+:root {
+    /* html 요소의 폰트사이즈 설정이  62.5% (10px) 로되어짐. */
+
+    /* main + sub */
+    --font-auth: 600 1.5rem/1.9rem 'pretendard', sans-serif;
+    --font-quick: 500 1.4rem/1.7rem 'pretendard', sans-serif;
+
+    --font-h2: 700 2.2rem/1.9rem 'pretendard', sans-serif;
+    --font-l: 600 1.8rem/2.1rem 'pretendard', sans-serif;
+    --font-m: 600 1.6rem/1.9rem 'pretendard', sans-serif;
+    --font-s: 400 1.4rem/1.9rem 'pretendard', sans-serif;
+
+    --font-unique: 700 2.4rem/3.0rem 'Ria', sans-serif;
+    --font-unique-aux: 700 1.8rem/1.9rem 'Ria', sans-serif;
+
+    --font-book-title: 500 1.5rem/1.8rem 'pretendard', sans-serif;
+    --font-book-aux: 500 1.3rem/1.8rem 'pretendard', sans-serif;
+
+    --font-tag: 600 1.2rem/1.9rem 'pretendard', sans-serif;
+
+    --font-foot-l: 400 1.3rem/1.9rem 'pretendard', sans-serif;
+    --font-foot-m: 400 1.1rem/1.9rem 'pretendard', sans-serif;
+
+    /* sub */
+    --font-sub-h2: 700 2.1rem/2.5rem 'pretendard', sans-serif;
+    --font-sub-tab: 700 1.5rem/1.8rem 'pretendard', sans-serif;
+    --font-sub-book-title: 500 1.6rem/1.9rem 'pretendard', sans-serif;
+    --font-sub-book-aux: 400 1.4rem/1.7rem 'pretendard', sans-serif;
+    --font-sub-book-desc: 400 1.3rem/1.6rem 'pretendard', sans-serif;
+}

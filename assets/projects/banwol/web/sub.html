@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반월도서관/추천도서</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/font.css">
+<link rel="stylesheet" href="./css/var.css">
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/sub.css">
+</head>
+<body>
+
+<!-- Header -->
+<header id="top">
+        <!-- 로고 + 유틸리티 -->
+        <div class="header-wrap">
+            <div class="header-top container">
+                <h1><a href="#top" data-scroll-top><img src="./img/sub-logo.png" alt="반월도서관"></a></h1>
+
+                <div class="utility">
+                    <form class="search-form" action="/search" method="get">
+                    <img src="./img/ic-search.png" class="search-icon" alt="">
+                    <input type="search" class="search-input" name="query" autocomplete="off">
+                </form>
+
+                    <div class="user-menu">
+                        <a href="#" class="user-link"><img src="./img/ic-login.png" alt="로그인">로그인</a>
+                        <a href="#" class="user-link"><img src="./img/ic-user.png" alt="회원가입">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="gnb">
+          <div class="gnb-inner container">
+            <a href="#top" class="gnb-sticky-brand" data-scroll-top aria-label="반월도서관 홈"><img src="./img/logo-short.png" alt="반월도서관"></a>
+            <ul class="category">
+              <li><a href="#">자료검색</a></li>
+              <li><a href="#">프로그램</a></li>
+              <li><a href="#">이용안내</a></li>
+              <li><a href="#">참여마당</a></li>
+              <li><a href="#">나의 도서관</a></li>
+              <li><a href="#">도서관 소개</a></li>
+            </ul>
+            <div class="gnb-search-slot"></div>
+          </div>
+          <div class="mega-menu">
+            <div class="mega-menu-inner container">
+              <ul class="mega-menu-column">
+                <li><a href="#">통합검색</a></li><li><a href="#">신착도서</a></li><li><a href="./sub.html">추천도서</a></li><li><a href="#">교과연계</a></li><li><a href="#">희망도서</a></li><li><a href="#">전자도서관</a></li>
+              </ul>
+              <ul class="mega-menu-column">
+                <li><a href="#">문화행사</a></li><li><a href="#">독서모임</a></li><li><a href="#">강좌신청</a></li><li><a href="#">행사일정</a></li>
+              </ul>
+              <ul class="mega-menu-column">
+                <li><a href="#">운영시간·휴관일</a></li><li><a href="#">자료실 안내</a></li><li><a href="#">대출·반납</a></li><li><a href="#">회원가입 안내</a></li><li><a href="#">오시는 길</a></li>
+              </ul>
+              <ul class="mega-menu-column">
+                <li><a href="#">공지사항</a></li><li><a href="#">자주 묻는 질문</a></li><li><a href="#">자유게시판</a></li><li><a href="#">설문 참여</a></li>
+              </ul>
+              <ul class="mega-menu-column">
+                <li><a href="#">대출·예약 현황</a></li><li><a href="#">희망도서 신청</a></li><li><a href="#">내 서재</a></li><li><a href="#">개인정보 관리</a></li>
+              </ul>
+              <ul class="mega-menu-column">
+                <li><a href="#">도서관 안내</a></li><li><a href="#">인사말</a></li><li><a href="#">연혁·조직도</a></li><li><a href="#">찾아오시는 길</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+
+</header>
+<!-- # Header -->
+
+<!-- sub -->
+<main class="sub-container container">
+  <!-- 사이드 메뉴 -->
+  <aside class="sub-sidebar">
+    <ul class="sub-menu-list">
+      <li><a href="#" class="sub-menu-item">신착도서</a></li>
+      <li><a href="#" class="sub-menu-item active">추천도서</a></li>
+      <li><a href="#" class="sub-menu-item">교과연계</a></li>
+      <li><a href="#" class="sub-menu-item">희망도서</a></li>
+      <li><a href="#" class="sub-menu-item">전자도서관</a></li>
+    </ul>
+  </aside>
+
+  <!-- 우측 콘텐츠 본문 -->
+  <section class="sub-content">
+    
+    <h2 class="sub-title">
+      <a href="#" class="depth1">자료검색</a>
+      <img src="./img/sub-small-arrow.png" alt="">
+      <a href="#" class="depth2">추천도서</a>
+    </h2>
+
+    <!-- 탭 메뉴 -->
+    <div class="sub-tab-wrapper">
+      <ul class="sub-tab-list">
+        <li class="tab-item active"><a href="#">전체</a></li>
+        <li class="tab-item"><a href="#">일반</a></li>
+        <li class="tab-item"><a href="#">청소년</a></li>
+        <li class="tab-item"><a href="#">어린이</a></li>
+      </ul>
+      <div class="tab-bottom-line"></div>
+    </div>
+
+    <!-- View button -->
+    <div class="view-btn-wrapper">
+      <button type="button" class="btn-view btn-view-left active" aria-label="리스트형 보기">
+        <img src="./img/ic-view-list.png" alt="">
+      </button>
+      <button type="button" class="btn-view btn-view-right" aria-label="바둑판형 보기">
+        <img src="./img/ic-view-grid.png" alt="">
+      </button>
+    </div>
+
+    <!-- Book list -->
+    <ul class="sub-book-list">
+      <!-- 1 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-01.jpg" alt="내면 근력 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">내면 근력</strong></a>
+          <a href="#"><p class="subtitle">짐 머피 · 윌북 · 자기계발</p></a>
+          <p class="desc">여기, 슬럼프에 빠진 사람에게 생애 최고의 ‘커리어 하이’를 안겨주는 멘탈 코치가 있다. 세계 정상급 선수들과 기업 리더들의 코치 짐 머피다. 그가 구축한 ‘내면 근력(Inner Excellence)’ 훈련은 올림픽 금메달리스트를 비롯한 세계적인 선수들과 수십만 독자들 사이에서 ‘인생을 바꾼 수련이자 철학’으로 불린다. 최근에는 미국 프로풋볼 선수 A.J. 브라운이 경기 도중 이 책을 읽으며 마음을 다잡는 장면이 화제가 되었고, 전 세계에 ‘내면 근력’ 신드롬이 번지는 계기가 됐다.</p>
+          <time class="date">2026.04.27</time>
+        </div>
+      </li>
+
+      <!-- 2 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-02.jpg" alt="일터에 관한 낯선 시선 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">일터에 관한 낯선 시선 : 무뎌진 생존 감각을 일깨우는 인문학적 도구 25</strong></a>
+          <a href="#"><p class="subtitle">김원 · 머스트리드북 · 인문/교양</p></a>
+          <p class="desc">여기, 슬럼프에 빠진 사람에게 생애 최고의 ‘커리어 하이’를 안겨주는 멘탈 코치가 있다. 세계 정상급 선수들과 기업 리더들의 코치 짐 머피다. 그가 구축한 ‘내면 근력(Inner Excellence)’ 훈련은 올림픽 금메달리스트를 비롯한 세계적인 선수들과 수십만 독자들 사이에서 ‘인생을 바꾼 수련이자 철학’으로 불린다. 최근에는 미국 프로풋볼 선수 A.J. 브라운이 경기 도중 이 책을 읽으며 마음을 다잡는 장면이 화제가 되었고, 전 세계에 ‘내면 근력’ 신드롬이 번지는 계기가 됐다.</p>
+          <time class="date">2025.11.21</time>
+        </div>
+      </li>
+
+      <!-- 3 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-03.jpg" alt="끝까지 해내는 마음은 어떻게 탄생하는가 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">끝까지 해내는 마음은 어떻게 탄생하는가</strong></a>
+          <a href="#"><p class="subtitle">웬디 그롤닉 · 현대지성 · 심리</p></a>
+          <p class="desc">『끝까지 해내는 마음은 어떻게 탄생하는가』는 우리가 당연하게 믿어온 동기부여의 상식을 정면으로 뒤집는 책이다. 이 책은 “왜 우리는 늘 시작하지 못하고, 끝까지 해내지 못하는가?”라는 질문에 대한 답을 의지 부족이 아닌 ‘잘못된 이해’에서 찾는다. 많은 사람들은 동기를 타고나는 성격이나 의지력의 문제로 여긴다.</p>
+          <time class="date">2026.04.07</time>
+        </div>
+      </li>
+
+      <!-- 4 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-04.jpg" alt="오픈콜로 with GPT, 제미나이, 클로드 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">오픈콜로 with GPT, 제미나이, 클로드</strong></a>
+          <a href="#"><p class="subtitle">강민혁 · 한빛미디어 · 인공지능</p></a>
+          <p class="desc">AI 에이전트의 이름을 짓고, 성격을 정하고, 일을 맡기고, 자동화를 거는 과정을 새 팀원을 온보딩하듯 단계별로 안내하는 책이다. GPT, 제미나이, 클로드 중 상황에 맞는 모델을 골라 쓰는 법, 비용을 아끼는 법, 보안을 챙기는 법까지 빠짐없이 다룬다.</p>
+          <time class="date">2026.03.30</time>
+        </div>
+      </li>
+
+      <!-- 5 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"></a><img src="./img/sub-book-05.jpg" alt="잃어버린 얼굴 표지">
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">잃어버린 얼굴</strong></a>
+          <a href="#"><p class="subtitle">사쿠라다 도모야 · 반타 · 소설</p></a>
+          <p class="desc">지금 일본 미스터리계에서 가장 주목받는 작가이자 발표하는 작품마다 자신의 평가를 다시 써 내려가고 있는 사쿠라다 도모야의 『잃어버린 얼굴』이 반타에서 출간되었다. 2021년 연작 단편집 『매미 돌아오다』로 제74회 일본추리작가협회상과 제21회 본격미스터리대상을 동시에 수상한 사쿠라다 도모야는 정통파 본격의 계보를 잇는 ‘본격 단편의 고수’로 알려졌다.</p>
+          <time class="date">2026.02.10</time>
+        </div>
+      </li>
+
+      <!-- 6 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-06.jpg" alt="바다에서 온 소년 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">바다에서 온 소년</strong></a>
+          <a href="#"><p class="subtitle">개럿 카 · 북파머스 · 소설</p></a>
+          <p class="desc">아일랜드 더니골의 작은 어촌 마을. 어느 날 바다에서 발견된 한 아이의 등장으로 마을의 균형은 미묘하게 흔들리기 시작한다. 아이를 집으로 데려온 어부 앰브로즈, 그 결정으로 흔들리기 시작한 가족, 그리고 소문과 기대 속에서 성장하는 한 소년. 이 소설은 20년에 걸친 시간을 따라가며, 한 존재의 도착이 마을의 운명을 어떻게 다시 쓰는지 밀도 있게 그려낸다.</p>
+          <time class="date">2026.04.01</time>
+        </div>
+      </li>
+
+      <!-- 7 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-07.jpg" alt="자연은 포기하지 않는다 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">자연은 포기하지 않는다 : 극한의 동식물에게 배우는 살아갈 용기</strong></a>
+          <a href="#"><p class="subtitle">이원영 · 교보문고 · 과학</p></a>
+          <p class="desc">오늘날 인간 사회는 정말 극한이다. 그래서 우리는 종종 ‘사는 게 너무 힘들다’는 생각을 하곤 한다. 이렇게 사는 게 너무 힘든 게 과연 인간뿐일까? 영하 40도의 언 땅, 잠수함의 최대 잠항 깊이보다 더 깊은 바다, 산소가 희박한 높은 하늘, 한 치 앞도 보이지 않는 캄캄한 동굴, 물 한 방울 구하기 어려운 건조한 사막, 말 그대로 극한의 환경에도 생명은 존재한다.</p>
+          <time class="date">2025.12.22</time>
+        </div>
+      </li>
+
+      <!-- 8 -->
+      <li class="sub-book-item">
+        <div class="book-cover">
+          <a href="#"><img src="./img/sub-book-08.jpg" alt="아주 오래된 행복론 표지"></a>
+        </div>
+        <div class="book-detail">
+          <a href="#"><strong class="title">아주 오래된 행복론</strong></a>
+          <a href="#"><p class="subtitle">알랭 · 아르테 · 에세이</p></a>
+          <p class="desc">『아주 오래된 행복론』은 20세기 프랑스의 대표적인 철학가이자 비평가인 알랭이 1906년부터 1936년까지 프랑스 신문에 연재한 철학적이고 짧은 에세이(일종의 칼럼으로 프로포[propos]라고 불렀다) 중에서 행복을 주제로 한 글을 선별해 담은 에세이집이다. 100여 년이 지난 오늘날에도 행복에 대한 그의 철학과 지침은 하나도 퇴색되지 않고 오히려 또렷하고 분명하게 다가온다.</p>
+          <time class="date">2025.01.20</time>
+        </div>
+      </li>
+    </ul>
+
+    <!-- 페이지네이션 -->
+    <div class="pagination">
+      <button type="button" class="btn-page btn-prev" aria-label="이전 페이지">
+        <img src="./img/sub-page-01.png" alt="">
+      </button>
+      
+      <div class="page-numbers">
+        <a href="#" class="page-num active">1</a>
+        <a href="#" class="page-num">2</a>
+        <a href="#" class="page-num">3</a>
+        <a href="#" class="page-num">4</a>
+        <a href="#" class="page-num">5</a>
+      </div>
+
+      <button type="button" class="btn-page btn-next" aria-label="다음 페이지">
+        <img src="./img/sub-page-02.png" alt="">
+      </button>
+    </div>
+  </section>
+</main>
+<!-- # sub -->
+
+<!-- Footer -->
+<footer class="footer">
+    <!-- 패밀리사이트 -->
+    <div class="family-site-bar">
+      <div class="family-site-inner container">
+
+        <ul class="family-list">
+          <li><a href="#"><img src="./img/family-01.png" alt="국가전자도서관"></a></li>
+          <li><a href="#"><img src="./img/family-02.png" alt="국립중앙도서관"></a></li>
+          <li><a href="#"><img src="./img/family-03.png" alt="국회도서관"></a></li>
+          <li><a href="#"><img src="./img/family-04.png" alt="학술연구정보서비스 RISS"></a></li>
+        </ul>
+  
+        <button type="button" class="btn-related">
+          <span>관련사이트</span>
+          <img src="./img/down-arrow.png" alt="" class="icon-arrow">
+        </button>
+      </div>
+    </div>
+  
+    <!-- 푸터 메인 -->
+    <div class="footer-main container">
+
+      <div class="footer-left">
+        <h1 class="foot-logo">
+            <a><img src="./img/foot-logo.png" alt="반월도서관"></a>
+        </h1>
+        
+        <div class="footer-info">
+          <address class="address">
+            <strong>(15521)</strong> 안산시 상록구 반월새싹길 39-3
+          </address>
+          <p class="tel">TEL: 031-481-2663</p>
+
+          <ul class="policy-list">
+            <li><a href="#" class="privacy">개인정보 처리방침</a></li>
+            <li><a href="#">이메일추출 방지정책</a></li>
+            <li><a href="#">도서관행정 서비스헌장</a></li>
+            <li><a href="#">도서관윤리선언</a></li>
+            <li><a href="#">저작권정책</a></li>
+          </ul>
+  
+          <p class="copyright">Copyright © 2007 Ansan Banwol Library. All Rights Reserved.</p>
+        </div>
+      </div>
+  
+      <!-- SNS -->
+      <ul class="sns-list">
+        <li>
+          <a href="#" aria-label="facebook">
+            <img src="./img/sns-01.png" alt="Facebook">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="instagram">
+            <img src="./img/sns-02.png" alt="Instagram">
+          </a>
+        </li>
+        <li>
+          <a href="#" aria-label="youtube">
+            <img src="./img/sns-03.png" alt="Youtube">
+          </a>
+        </li>
+      </ul>
+      
+    </div>
+
+  </footer>
+<!-- # Footer -->
+
+<button type="button" class="scroll-top" aria-label="맨 위로 이동">
+  <img src="./img/right-arrow.png" alt="">
+</button>
+<script src="./js/main.js" defer></script>
+</body>
+</html>

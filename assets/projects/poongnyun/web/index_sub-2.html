@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>풍년살림 서브페이지2</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/font.css">
+<link rel="stylesheet" href="./css/var.css">
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/main.css">
+<link rel="stylesheet" href="./css/sub.css">
+<link rel="stylesheet" href="./css/sub2.css">
+<script src="./js/header.js" defer></script>
+</head>
+<body>
+
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;">
+    <symbol id="heart-icon" viewBox="0 0 28.08 25.92">
+        <path fill="#fff" d="M27.4,5.31c-.44-1.04-1.06-1.98-1.85-2.77-.79-.79-1.71-1.43-2.73-1.86C21.77.23,20.63,0,19.49,0,17.89,0,16.33.45,14.97,1.31c-.32.2-.63.43-.93.67-.29-.24-.6-.47-.93-.67C11.76.45,10.19,0,8.59,0,7.44,0,6.32.23,5.26.68c-1.02.44-1.94,1.06-2.73,1.86-.79.79-1.41,1.73-1.85,2.77-.45,1.08-.68,2.23-.68,3.41,0,1.12.22,2.28.66,3.46.37.99.89,2.01,1.57,3.05,1.07,1.64,2.53,3.35,4.35,5.08,3.02,2.87,6,4.85,6.13,4.93l.77.51c.34.22.78.22,1.12,0l.77-.51c.13-.08,3.11-2.06,6.13-4.93,1.82-1.73,3.29-3.44,4.35-5.08.67-1.03,1.2-2.06,1.57-3.05.44-1.18.66-2.34.66-3.46,0-1.18-.23-2.33-.68-3.41ZM14.04,23.1S2.47,15.46,2.47,8.72c0-3.41,2.74-6.18,6.12-6.18,2.38,0,4.44,1.37,5.45,3.36,1.01-2,3.07-3.36,5.45-3.36,3.38,0,6.12,2.77,6.12,6.18,0,6.74-11.57,14.38-11.57,14.38Z"/>
+    </symbol>
+</svg>
+
+<!-- Header -->
+<header>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar__inner container">
+            <p class="top-bar__notice">
+                <img src="./img/ic-notice.png" alt="공지사항" class="top-bar__notice-icon">
+                <span class="top-bar__notice-title">공지사항</span>
+                <a href="#" class="top-bar__notice-text" aria-live="polite">피오레 통3중 압력솥 안전기준 부적합 상품 회수 안내</a>
+            </p>
+            <nav class="top-bar__user">
+                <a href="#" class="top-bar__user-link">마이페이지</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">로그인</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">회원가입</a>
+                <span class="top-bar__divider" aria-hidden="true"></span>
+                <a href="#" class="top-bar__user-link">기업홈페이지</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- Main Header -->
+    <div class="main-header">
+        <div class="main-header__inner container">
+            <div class="main-header__left">
+                <h1 class="header__logo">
+                    <a href="./index.html">
+                        <img src="./img/rogo.jpg" alt="풍년살림">
+                    </a>
+                </h1>
+                
+                <form class="search-bar">
+                    <input type="text" class="search-bar__input" placeholder="검색어를 입력하세요">
+                    <button type="submit" class="search-bar__btn">
+                        <img src="./img/ic-search.png" alt="검색">
+                    </button>
+                </form>
+
+                <div class="rank">
+                    <span class="rank__num">1</span>
+                    <a href="#" class="rank__text">텀블러</a>
+                </div>
+            </div>
+
+            <nav class="header__utils">
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-user.png" alt="마이페이지">
+                </a>
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-heart.png" alt="찜목록">
+                </a>
+                <a href="#" class="header__util-link">
+                    <img src="./img/ic-cart.png" alt="장바구니">
+                </a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- GNB -->
+    <nav class="gnb">
+        <div class="gnb__inner container">
+            <div class="gnb__category-btn">
+                <img src="./img/ic-category.png" alt="" class="gnb__hamburger-icon">
+                <span class="gnb__category-text">카테고리</span>
+            </div>
+
+            <ul class="gnb__list">
+                <li class="gnb__item"><a href="#" class="gnb__link">풍년살림</a></li>
+                <li class="gnb__item"><a href="./index_sub.html" class="gnb__link">베스트</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">신상품</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">이벤트</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">압력솥</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">냄비</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">프라이팬</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">가전</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">주방소품</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">제휴문의</a></li>
+                <li class="gnb__item"><a href="#" class="gnb__link">고객센터</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<!-- # Header -->
+
+<!-- Main -->
+<main class="sub-company">
+
+    <!-- 서브 비주얼 섹션 -->
+    <section class="sub-visual">
+        <div class="sub-visual__inner container">
+            <!-- Breadcrumb -->
+            <nav class="sub-breadcrumb">
+                <a href="./index.html" class="sub-breadcrumb__home">
+                    <img src="./img/sub__home.png" alt="홈" class="sub-breadcrumb__home-icon">
+                </a>
+                <img src="./img/sub__breadcrumb-arrow.svg" alt="" class="sub-breadcrumb__arrow">
+                <span class="sub-breadcrumb__current">회사소개</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- 인트로 섹션 -->
+    <section class="company-intro">
+        <div class="company-intro__inner container">
+            <div class="company-intro__cert">
+                <img src="./img/certificate.jpg" alt="명물장수기업 인증서" class="company-intro__cert-img">
+            </div>
+            <div class="company-intro__content">
+                <p class="company-intro__text">
+                    70년의 역사 속에 대한민국의 산업화 시대에 국민들의 밥맛을 책임져온 풍년 압력솥.<br>
+                    치포치포 울려대던 신호추의 밥익는 소리는 가족의 식탁을 책임지는 팡파레와 같았고, 이렇게 오랜 시간 동안<br>
+                    모든 이의 사랑을 받으며 성장할 수 있었습니다.<br><br>
+                    가치와 경험을 중시하는 지금, PN을 경험하는 모든 이에게 풍요로움을 제공하는 이웃 같은 푸근함으로 자신<br>
+                    에게는 엄격하지만 고객의 경험에 한치의 불편함이 없는 그런 기업으로 발전해 나감으로서 백년을 이어가는<br>
+                    장수 기업으로 지속해 나갈 것이라 약속 드립니다.
+                </p>
+                <p class="company-intro__position">주식회사PN풍년 경영총괄</p>
+                <p class="company-intro__name">김대성</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 브랜드 스토리 섹션 -->
+    <section class="company-brand">
+        <div class="company-brand__inner container">
+            <!-- 좌측 섹션 -->
+            <div class="company-brand__left">
+                <div class="company-brand__img-wrap">
+                    <img src="./img/brand_story.jpg" alt="브랜드 스토리 이미지" class="company-brand__img">
+                </div>
+                <h2 class="company-brand__title">BRAND STORY</h2>
+                <p class="company-brand__sub">Since 1954, 풍요로운 주방의 시작</p>
+                <p class="company-brand__text">
+                    1954년 소규모 공장으로 출발한 'PN풍년'은 세밀한 부분까지 심혈을 기울이는 장인정신과 언제나 이웃 같은 친근함으로<br>
+                    고객들과 함께 전통을 이어오고 있는 대한민국 주방 문화의 선도기업입니다.<br><br>
+                    따뜻한 밥 한 끼에 감사하던 시절, 따사로움이 가득한 풍요로운 주방을 꿈꾸며, 대한민국 최초로 '풍년압력솥'을 개발하여 아<br>
+                    낌없는 사랑을 받았고, 현재까지도 가장 사랑받는 압력솥 브랜드로 주방을 지키고 있습니다.<br><br>
+                    PN풍년은 언제나처럼 고객들이 일상의 행복을 꿈꿀 수 있는 주방 문화를 위해 최선을 다하고 있습니다.
+                </p>
+            </div>
+
+            <!-- 우측 연혁 섹션 -->
+            <div class="company-brand__right">
+                <div class="company-history">
+                    <!-- 연혁 라인 선 -->
+                    <div class="company-history__line"></div>
+                    
+                    <!-- 연혁 세로 리스트 -->
+                    <ul class="company-history__list">
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">1954</span>
+                                <p class="company-history__desc">세광알미늄공업사 설립</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">1976</span>
+                                <p class="company-history__desc">국내 최초 압력솥 개발 및 판매</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">1987</span>
+                                <p class="company-history__desc">반월공장 준공</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">2004</span>
+                                <p class="company-history__desc">기업부설연구소 설립</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">2009</span>
+                                <p class="company-history__desc">주식회사 PN풍년으로 사명 변경</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">2023</span>
+                                <p class="company-history__desc">CCM 명예의 전당 선정</p>
+                            </div>
+                        </li>
+                        <li class="company-history__item">
+                            <svg class="company-history__dot" viewBox="0 0 6 6">
+                                <circle cx="3" cy="3" r="3" fill="#525252" />
+                            </svg>
+                            <div class="company-history__content">
+                                <span class="company-history__year">2024</span>
+                                <p class="company-history__desc">창립 70주년</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 테크니션 섹션 -->
+    <section class="company-tech">
+        <div class="company-tech__inner container">
+            <div class="company-tech__left">
+                <h2 class="company-tech__title">MANUFACTURING</h2>
+                <p class="company-tech__sub">주방의 손길 닿는 모든 곳, PN이 함께합니다.</p>
+                <p class="company-tech__text">
+                    국내 유일한 중력 주조(Gravity die casting) 기술을 도입하고 정착시킨 PN풍년은<br>
+                    제품 하나 하나에 전문 정성, 노하우를 바탕으로 스텐리스와 유다<br>
+                    양가 금속 소재의 넘어서 프리미엄을 생산하고 있습니다.<br><br>
+                    또한 끊임없는 주방 트렌드와 고객의 합적 니즈까지 반영한 주방가전 분야에<br>
+                    더 진출하여 고객의 삶을 빛내고 있습니다.<br><br>
+                    매일 매일 건강하고 안전한 주방의 행복을 지키기 위해, 주방의 손길 담는 모든 곳,<br>
+                    그곳에 언제나 함께 합니다.
+                </p>
+            </div>
+        </div>
+        <div class="company-tech__right-bg">
+            <img src="./img/brand_story.jpg" alt="Manufacturing 기술 이미지" class="company-tech__img">
+            <div class="company-tech__badge">
+                <span class="company-tech__badge-text">Aluminum & Stainless</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 슬로건 섹션 -->
+    <section class="company-slogan">
+        <div class="company-slogan__inner">
+            <img src="./img/sub__line-left.png" alt="" class="company-slogan__line">
+            <div class="company-slogan__center">
+                <img src="./img/sprout.png" alt="새싹 아이콘" class="company-slogan__icon">
+                <h3 class="company-slogan__title">주방 공간 너머 고객의 삶을 위해</h3>
+                <p class="company-slogan__sub">풍년살림은 오늘도 더 좋은 제품과 서비스로 고객의 일상에 풍요로움을 더하기 위해 노력합니다.</p>
+            </div>
+            <img src="./img/sub__line-right.png" alt="" class="company-slogan__line">
+        </div>
+    </section>
+
+</main>
+<!-- # Main -->
+
+<!-- Footer -->
+<footer>
+    <div class="footer__inner container">
+        
+        <!-- Left Area -->
+        <div class="footer__left">
+            <h1 class="footer__logo">
+                <img src="./img/rogo.jpg" alt="풍년살림">
+            </h1>
+
+            <ul class="footer__policy-list">
+                <li><a href="#" class="footer__policy-item footer__policy-item--bold">개인정보처리방침</a></li>
+                <li><a href="#" class="footer__policy-item">서비스이용약관</a></li>
+                <li><a href="#" class="footer__policy-item">이메일무단수집거부</a></li>
+                <li><a href="#" class="footer__policy-item">사업자정보확인</a></li>
+                <li><a href="#" class="footer__policy-item">제품소개</a></li>
+            </ul>
+
+            <address class="footer__address">
+                <p class="footer__address-row">15613 경기 안산시 단원구 별망로 620 (초지동) ㈜PN풍년</p>
+                <p class="footer__address-row">
+                    <span>대표: 유재원</span>
+                    <span>개인정보보호책임자: 배성수</span>
+                    <span>주식회사 PN풍년</span>
+                </p>
+                <p class="footer__address-row">
+                    <span>사업자등록번호: 134-81-08319</span>
+                    <span>통신판매번호: 제 2011-경기안산-0048 호</span>
+                </p>
+            </address>
+
+            <div class="footer__info">
+                <p class="footer__info-row">
+                    <span>TEL: 031-491-2965</span>
+                    <span>FAX: 031-491-2815E</span>
+                    <span>EMail: web@pn.co.kr</span>
+                </p>
+                <p class="footer__copyright">Copyright © PN POONGNYUN. All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Center Area -->
+        <div class="footer__center">
+            <div class="footer__cs-group">
+                <h2 class="footer__cs-title">고객yes센터</h2>
+                <strong class="footer__cs-tel">1588-9717</strong>
+
+                <div class="footer__cs-buttons">
+                    <a href="#" class="footer__cs-btn">1:1문의</a>
+                    <a href="#" class="footer__cs-btn">자주 묻는 질문</a>
+                </div>
+
+                <div class="footer__cs-hours">
+                    <p class="footer__cs-hours-row">
+                        <span>평일: 09:00 ~ 17:30</span>
+                        <span>점심시간: 12:00 ~ 13:00</span>
+                    </p>
+                    <p class="footer__cs-hours-row">
+                        <span>본사: 11:40 ~ 13:40</span>
+                        <span>주말/공휴일 휴무</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Area -->
+        <div class="footer__right">
+            <ul class="footer__sns-list">
+                <li><a href="#"><img src="./img/sns-01.png" alt="블로그"></a></li>
+                <li><a href="#"><img src="./img/sns-02.png" alt="페이스북"></a></li>
+                <li><a href="#"><img src="./img/sns-03.png" alt="인스타그램"></a></li>
+                <li><a href="#"><img src="./img/sns-04.png" alt="유튜브"></a></li>
+            </ul>
+        </div>
+
+    </div>
+</footer>
+<!-- # Footer -->
+
+</body>
+</html>

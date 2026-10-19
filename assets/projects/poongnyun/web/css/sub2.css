@@ -1,0 +1,349 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   서브페이지 공통 & 서브 비주얼 섹션
+   ========================================================================== */
+
+.gnb::after {
+    display: none;
+}
+.sub-company {
+    width: 100%;
+}
+
+.sub-visual {
+    width: 100%;
+    height: 57rem;
+    background: url('../img/sub__visual.jpg') no-repeat center center / cover;
+}
+
+/* Breadcrumb */
+.sub-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding-top: 8rem;
+    padding-left: 0.6rem;
+    margin-bottom: 3.2rem;
+}
+
+.sub-breadcrumb__home-icon {
+    display: block;
+    width: 2.4rem;
+    height: 2.4rem;
+}
+
+.sub-breadcrumb__arrow {
+    display: block;
+}
+
+.sub-breadcrumb__current {
+    font: var(--font-sub-h2);
+    color: var(--color-gray-01);
+}
+
+/* ==========================================================================
+   1. 인트로 섹션 (Company Intro)
+   ========================================================================== */
+.company-intro {
+    width: 100%;
+    height: 59.2rem;
+    padding-top: 11.2rem;
+}
+
+.company-intro__inner {
+    display: flex;
+    align-items: flex-start;
+}
+
+.company-intro__cert {
+    margin-left: 15.4rem;
+    flex-shrink: 0;
+}
+
+.company-intro__cert-img {
+    display: block;
+    width: 25.3rem;
+    height: 34.8rem;
+    object-fit: cover;
+}
+
+.company-intro__content {
+    margin-left: 8rem;
+    max-width: 75rem;
+}
+
+.company-intro__text {
+    font: var(--font-sub2-body);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+}
+
+.company-intro__position {
+    margin-top: 4.4rem;
+    font: 600 2.4rem/2.9rem 'pretendard', sans-serif;
+    color: var(--color-primary);
+}
+
+.company-intro__name {
+    margin-top: 2.6rem;
+    font: 700 2.4rem/2.9rem 'pretendard', sans-serif;
+    color: var(--color-gray-01);
+    letter-spacing: 1em;
+}
+
+/* ==========================================================================
+   2. 브랜드 스토리 섹션 (Brand Story & History) - 레이아웃 완벽 재설정
+   ========================================================================== */
+.company-brand {
+    width: 100%;
+    height: 89.2rem;
+    background: url('../img/brand_bg.jpg') no-repeat center center / cover;
+}
+
+.company-brand__inner {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* 좌측 영역: 패딩(16.4rem) + 컨텐츠(82.6rem) 포함 정확히 폭 계산 */
+.company-brand__left {
+    width: calc(16.4rem + 82.6rem); /* 총 99rem 사용 */
+    padding-left: 16.4rem;
+    flex-shrink: 0;
+    box-sizing: border-box;
+}
+
+.company-brand__img-wrap {
+    margin-top: 10rem;
+    width: 82.6rem;
+    height: 33.4rem;
+}
+
+.company-brand__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.company-brand__title {
+    margin-top: 6.4rem;
+    font: var(--font-sub2-title);
+    color: var(--color-primary);
+}
+
+.company-brand__sub {
+    margin-top: 0.8rem;
+    font: var(--font-sub2-sub);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+}
+
+.company-brand__text {
+    margin-top: 3.2rem;
+    font: var(--font-sub2-body2);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+}
+
+/* 우측 연혁 영역: 이미지 우측끝에서 무조건 11.4rem 떨어진 지점에 연혁선 배치 */
+.company-brand__right {
+    position: relative;
+    margin-left: 11.4rem; /* 좌측 이미지로부터 정확히 11.4rem 간격 이격 */
+    flex: 1;
+    height: 100%;
+}
+
+.company-history {
+    position: relative;
+    height: 100%;
+}
+
+/* 연혁 라인 선 */
+.company-history__line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(to bottom, #C4C4C4 0%, #E5E5E5 100%);
+}
+
+/* 연혁 세로 목록 (상단 22rem 시작) */
+.company-history__list {
+    position: absolute;
+    top: 22rem;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 3rem; /* 각 연혁 항목 간 세로 간격 3rem */
+}
+
+.company-history__item {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* #525252 SVG 원형 포인트 */
+.company-history__dot {
+    position: absolute;
+    left: -0.2rem; /* 2px 선 중심 위치 정렬 (-0.3rem + 0.1rem) */
+    top: 0.9rem;
+    width: 0.6rem;
+    height: 0.6rem;
+}
+
+/* 숫자 연혁 및 설명 세로(Column) 정렬 */
+.company-history__content {
+    margin-left: 4.3rem; /* 라인 선으로부터 우측 여백 4.3rem */
+    display: flex;
+    flex-direction: column; /* 세로배치 */
+    align-items: flex-start;
+}
+
+.company-history__year {
+    font: var(--font-sub2-sub);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+}
+
+.company-history__desc {
+    margin-top: 1.2rem; /* 연혁 숫자와 설명 간 간격 1.2rem */
+    font: var(--font-sub2-history);
+    color: #696969;
+    letter-spacing: -0.02em;
+}
+
+/* ==========================================================================
+   3. 테크니션 섹션 (Manufacturing)
+   ========================================================================== */
+.company-tech {
+    position: relative;
+    width: 100%;
+    height: 53rem;
+    overflow: hidden;
+}
+
+.company-tech__inner {
+    height: 100%;
+}
+
+.company-tech__left {
+    padding-left: 6.2rem;
+    max-width: 80rem;
+}
+
+.company-tech__title {
+    padding-top: 10rem;
+    font: var(--font-sub2-title);
+    color: var(--color-primary);
+}
+
+.company-tech__sub {
+    margin-top: 0.8rem;
+    font: var(--font-sub2-sub);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+}
+
+.company-tech__text {
+    margin-top: 3.2rem;
+    font: var(--font-sub2-body2);
+    color: var(--color-gray-01);
+    letter-spacing: -0.02em;
+    word-break: keep-all;
+}
+
+.company-tech__right-bg {
+    position: absolute;
+    top: 0;
+    /* 
+       컨테이너 중앙(50%)에서 컨테이너 너비 절반(예: 72rem) 기준 또는 
+       원하는 고정 위치 x축 값으로 지정합니다. 
+       화면 축소 시 좌측으로 밀리지 않고 제자리에 고정됩니다.
+    */
+    left: calc(50% + 0rem); /* 필요 시 +0rem 부분을 조절하여 고정 위치 설정 */
+    width: 96rem;
+    height: 100%;
+}
+
+.company-tech__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.company-tech__badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 49.4rem;
+    height: 5.6rem;
+    background: linear-gradient(90deg, rgba(160, 166, 81, 0) 0%, rgba(160, 166, 81, 0.88) 88%, rgba(160, 166, 81, 1) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 3.8rem;
+    box-sizing: border-box;
+}
+
+.company-tech__badge-text {
+    font: 600 2.2rem/2.6rem 'pretendard', sans-serif;
+    color: var(--color-white);
+}
+
+/* ==========================================================================
+   4. 슬로건 섹션 (Slogan)
+   ========================================================================== */
+.company-slogan {
+    width: 100%;
+    height: 16rem;
+    background-color: #F6F9E9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-slogan__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.company-slogan__line {
+    width: 45.7rem;
+    height: 4.3rem;
+}
+
+
+.company-slogan__center {
+    margin: 0 9rem;
+    text-align: center;
+}
+
+.company-slogan__icon {
+    width: 2.9rem;
+    height: 1.8rem;
+    margin: 0 auto;
+    display: block;
+}
+
+.company-slogan__title {
+    margin-top: 1.4rem;
+    font: var(--font-sub2-title);
+    color: #819143;
+    letter-spacing: -0.02em;
+}
+
+.company-slogan__sub {
+    margin-top: 0.6rem;
+    font: 400 1.6rem/1.9rem 'pretendard', sans-serif;
+    color: #585C54;
+    letter-spacing: -0.02em;
+}
+
+footer { border-top: none; }

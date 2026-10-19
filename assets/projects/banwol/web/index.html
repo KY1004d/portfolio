@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>반월도서관</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/font.css">
+<link rel="stylesheet" href="./css/var.css">
+<link rel="stylesheet" href="./css/common.css">
+<link rel="stylesheet" href="./css/main.css">
+</head>
+<body>
+
+<!-- Header -->
+<header id="top">
+        <!-- 로고 + 유틸리티 -->
+        <div class="header-wrap">
+            <div class="header-top container">
+                <h1><a href="#top" data-scroll-top><img src="./img/logo.png" alt="반월도서관"></a></h1>
+
+                <div class="utility">
+                    <form class="search-form" action="/search" method="get">
+                    <img src="./img/ic-search.png" class="search-icon" alt="search">
+                    <input type="search" class="search-input" name="query" autocomplete="off">
+                </form>
+
+                    <div class="user-menu">
+                        <a href="#" class="user-link"><img src="./img/ic-login.png" alt="로그인">로그인</a>
+                        <a href="#" class="user-link"><img src="./img/ic-user.png" alt="회원가입">회원가입</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <nav class="gnb">
+            <div class="gnb-inner container">
+                <a href="#top" class="gnb-sticky-brand" data-scroll-top aria-label="반월도서관 홈"><img src="./img/logo-short.png" alt="반월도서관"></a>
+                <ul class="category">
+                    <li><a href="#">자료검색</a></li>
+                    <li><a href="#">프로그램</a></li>
+                    <li><a href="#">이용안내</a></li>
+                    <li><a href="#">참여마당</a></li>
+                    <li><a href="#">나의 도서관</a></li>
+                    <li><a href="#">도서관 소개</a></li>
+                </ul>
+                <div class="gnb-search-slot"></div>
+            </div>
+            <div class="mega-menu">
+                <div class="mega-menu-inner container">
+                    <ul class="mega-menu-column">
+                        <li><a href="#">통합검색</a></li>
+                        <li><a href="#">신착도서</a></li>
+                        <li><a href="./sub.html">추천도서</a></li>
+                        <li><a href="#">교과연계</a></li>
+                        <li><a href="#">희망도서</a></li>
+                        <li><a href="#">전자도서관</a></li>
+                    </ul>
+                    <ul class="mega-menu-column">
+                        <li><a href="#">문화행사</a></li>
+                        <li><a href="#">행사일정</a></li>
+                        <li><a href="#">참가신청</a></li>
+                        <li><a href="#">강연·세미나</a></li>
+                        <li><a href="#">독서퀴즈</a></li>
+                    </ul>
+                    <ul class="mega-menu-column">
+                        <li><a href="#">이용시간</a></li>
+                        <li><a href="#">상호대차</a></li>
+                        <li><a href="#">물품보관함</a></li>
+                        <li><a href="#">시설대관</a></li>
+                        <li><a href="#">견학</a></li>
+                    </ul>
+                    <ul class="mega-menu-column">
+                        <li><a href="#">공지사항</a></li>
+                        <li><a href="#">자주 묻는 질문</a></li>
+                        <li><a href="#">묻고 답하기</a></li>
+                        <li><a href="#">설문조사</a></li>
+                    </ul>
+                    <ul class="mega-menu-column">
+                        <li><a href="#">대출현황</a></li>
+                        <li><a href="#">대출이력</a></li>
+                        <li><a href="#">예약현황</a></li>
+                        <li><a href="#">관심자료</a></li>
+                        <li><a href="#">내보관함</a></li>
+                        <li><a href="#">내가쓴글</a></li>
+                    </ul>
+                    <ul class="mega-menu-column">
+                        <li><a href="#">도서관현황</a></li>
+                        <li><a href="#">스마트도서관</a></li>
+                        <li><a href="#">작은도서관</a></li>
+                        <li><a href="#">오시는길</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+</header>
+<!-- # Header -->
+
+<!-- Main -->
+<main>
+    <!-- hero -->
+    <section class="main-visual">
+        <!-- visual --> 
+        <div class="visual-inner container" data-visual-carousel>
+            <a href="#">
+                <div class="visual-banner"><img class="visual-slide-image" src="./img/visual01.jpg" alt="도서관 행사 배너"></div>
+            </a>
+
+            <button type="button" class="btn-slide btn-prev" data-slide-prev aria-label="이전 배너 보기">
+                <img src="./img/left-arrow.png" alt="">
+            </button>
+            <button type="button" class="btn-slide btn-next" data-slide-next aria-label="다음 배너 보기">
+                <img src="./img/right-arrow.png" alt="">
+            </button>
+
+            <!-- 인디케이터 -->
+            <div class="carousel-dots">
+                <button type="button" class="dot active" data-slide-to="0" aria-label="1번 슬라이드로 이동" aria-current="true"></button>
+                <button type="button" class="dot" data-slide-to="1" aria-label="2번 슬라이드로 이동"></button>
+                <button type="button" class="dot" data-slide-to="2" aria-label="3번 슬라이드로 이동"></button>
+            </div>
+
+        </div>
+        <!-- visual -->
+
+        <!-- quick -->
+        <div class="quick-inner">
+            <ul class="quick-menu-list">
+
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-01.png" alt="대출현황">
+                        </div>
+                        <span>대출현황</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-02.png" alt="디지털도서관">
+                        </div>
+                        <span>디지털도서관</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-03.png" alt="자료신청안내">
+                        </div>
+                        <span>자료신청안내</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-04.png" alt="상호대차">
+                        </div>
+                        <span>상호대차</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-05.png" alt="희망도서">
+                        </div>
+                        <span>희망도서</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-06.png" alt="행사신청">
+                        </div>
+                        <span>행사신청</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="quick-link">
+                        <div class="quick-icon-box">
+                            <img src="./img/ic-quick-07.png" alt="오시는길">
+                        </div>
+                        <span>오시는길</span>
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+        <!-- # quick -->
+
+    </section>
+    <!-- # hero -->
+
+    <!-- News -->
+    <section class="news">
+        <div class="news-wrapper container">
+        
+        <!-- left -->
+        <div class="news-box">
+            <h2>도서관 소식</h2>
+            
+            <div class="tab-header">
+                <ul class="tab-list" role="tablist">
+                    <li role="presentation">
+                        <button type="button" class="tab-btn active" role="tab" id="tab-notice" aria-selected="true" aria-controls="panel-notice">공지사항</button>
+                    </li>
+                    <li role="presentation">
+                        <button type="button" class="tab-btn" role="tab" id="tab-board" aria-selected="false" aria-controls="panel-board">게시판</button>
+                    </li>
+                </ul>
+                <a href="#" class="btn-more">더보기</a>
+            </div>
+    
+            <div class="tab-panel active" id="panel-notice" role="tabpanel">
+                <ul class="board-list">
+                    <li class="board-item">
+                        <a href="#" class="board-box">
+                            <strong class="title"><span class="badge">공지</span>[관산도서관] 자원봉사자 모집</strong>
+                            <time datetime="2026-06-10" class="date">2026-06-10</time>
+                        </a>
+                    </li>
+                    <li class="board-item">
+                        <a href="#" class="board-box">
+                            <strong class="title">2026 안산시 올해의 책 독서감상작 전국공모전 안내</strong>
+                            <time datetime="2026-06-05" class="date">2026-06-05</time>
+                        </a>
+                    </li>
+                    <li class="board-item">
+                        <a href="#" class="board-box">
+                            <strong class="title">감골도서관 독서심리상담사 역량강화 및 시민들의 마음치유를 위한 프로그램(독서치료에 관심있는 시민 누구나 참여 가능)</strong>
+                            <time datetime="2026-05-12" class="date">2026-05-12</time>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    
+        <!-- right -->
+        <div class="schedule-box">
+            
+            <div class="schedule-header">
+                <a href="#" class="btn-more">상세보기</a>
+            </div>
+    
+            <div class="schedule-card">
+                <div class="operating-time">
+                    <h3 class="schedule-title">운영시간</h3>
+                    <p class="time-text">09:00 ~ 18:00</p>
+                    <p class="night-time">매주 수요일 <strong>18:00 ~ 21:00</strong> (야간운영)</p>
+                </div>
+        
+                <hr class="divider">
+        
+                <div class="closed-days">
+                    <p class="closed-title"><img src="./img/ic-notice.png" alt=""> 6월 예정 휴관일</p>
+                    <ul class="closed-list">
+                        <li><span class="closed-date">6.01 <span class="day">(월)</span></span></li>
+                        <li><span class="closed-date">6.08 <span class="day">(월)</span></span></li>
+                        <li><span class="closed-date">6.15 <span class="day">(월)</span></span></li>
+                        <li><span class="closed-date">6.20 <span class="day">(토)</span></span></li>
+                        <li><span class="closed-date">6.22 <span class="day">(월)</span></span></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    
+        </div>
+      </section>
+    <!-- # News -->
+
+    <!-- Today's -->
+    <section class="today-book">
+        <div class="today-book-wrapper container">
+            <h2>오늘의 도서</h2>
+
+                <button type="button" class="btn-slide btn-prev" data-slide-prev aria-label="이전 도서 보기">
+                    <img src="./img/left-arrow.png" alt="">
+                </button>
+                <button type="button" class="btn-slide btn-next" data-slide-next aria-label="다음 도서 보기">
+                    <img src="./img/right-arrow.png" alt="">
+                </button>
+
+                <!-- 도서 카드 리스트 -->
+                <div class="book-slider-viewport">
+                <ul class="book-list">
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-01.jpg" alt="이 완벽한 날">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">이 완벽한 날</strong>
+                                <span class="author">아이라 레빈</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-02.jpg" alt="파란 파란">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">파란 파란</strong>
+                                <span class="author">유지현</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-03.jpg" alt="저녁의 이웃">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">저녁의 이웃</strong>
+                                <span class="author">이수안</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-04.jpg" alt="태양 공포">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">태양 공포</strong>
+                                <span class="author">이종산</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-05.jpg" alt="불가능한 파랑의 궤도">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">불가능한<br>파랑의 궤도</strong>
+                                <span class="author">네이선 밸링루드</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-06.jpg" alt="물고기는 존재하지 않는다">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">물고기는<br>존재하지 않는다</strong>
+                                <span class="author">룰루 밀러</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-07.jpg" alt="희랍어 시간">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">희랍어 시간</strong>
+                                <span class="author">한강</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-08.jpg" alt="도깨비불 게스트하우스">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">도깨비불<br>게스트하우스</strong>
+                                <span class="author">범유진</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-09.jpg" alt="녹나무의 파수꾼">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">녹나무의 파수꾼</strong>
+                                <span class="author">히가시노 게이고</span>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="book-item">
+                        <a href="#">
+                            <div class="thumb">
+                                <img src="./img/today-book-10.jpg" alt="다정한 위선자">
+                            </div>
+                            <div class="book-info">
+                                <strong class="title">다정한 위선자</strong>
+                                <span class="author">메리 쿠비카</span>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                </div>
+
+        </div>
+    </section>
+    <!-- # Today's -->
+
+    <!-- New Books -->
+    <section class="new-book">
+        <div class="new-book-wrapper container">
+            <h2>신착도서</h2>
+
+            <button type="button" class="btn-slide btn-prev" data-slide-prev aria-label="이전 도서 보기">
+                <img src="./img/left-arrow.png" alt="">
+            </button>
+            <button type="button" class="btn-slide btn-next" data-slide-next aria-label="다음 도서 보기">
+                <img src="./img/right-arrow.png" alt="">
+            </button>
+    
+            <!-- 책 리스트 -->
+            <div class="book-slider-viewport">
+            <ul class="new-book-list">
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-01.jpg" alt="AI 워커스: 리디자인">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">AI 워커스: 리디자인</strong>
+                            <span class="author">김아람</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-02.jpg" alt="교양으로서의 패션: 도쿄대 패션론 집중강의">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">교양으로서의 패션: 도쿄대 패션론 집중강의</strong>
+                            <span class="author">히라요시 히로코</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-03.jpg" alt="괴담의 숲">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">괴담의 숲</strong>
+                            <span class="author">미쓰다 신조</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-04.jpg" alt="그 집의 언어: 나의 모어와 바깥의 모국어를 잇는 순간들">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">그 집의 언어: 나의 모어와 바깥의 모국어를 잇는 순간들</strong>
+                            <span class="author">류슬기</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-05.jpg" alt="100년 쓰는 완벽 허리">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">100년 쓰는 완벽 허리</strong>
+                            <span class="author">이대영</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-06.jpg" alt="골목이 골목을 뚫고">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">골목이 골목을 뚫고</strong>
+                            <span class="author">최종천</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-07.jpg" alt="단종애사">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">단종애사</strong>
+                            <span class="author">이광수</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-08.jpg" alt="종소리 The Toll">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">종소리 The Toll</strong>
+                            <span class="author">닐 셔스터먼</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-09.jpg" alt="삶이라는 완벽한 농담">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">삶이라는 완벽한 농담</strong>
+                            <span class="author">이경규</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-10.jpg" alt="당신의 삶이 왜 쉬워야 한다고 생각하십니까">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">당신의 삶이 왜 쉬워야 한다고 생각하십니까</strong>
+                            <span class="author">최한결</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-11.jpg" alt="우리의 낙원에서 만나자">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">우리의 낙원에서 만나자</strong>
+                            <span class="author">하태완</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="new-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/new-book-12.jpg" alt="우리의 낙원에서 만나자">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">반짝반짝 빛나는</strong>
+                            <span class="author">에쿠니 가오리</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            </div>
+
+        </div>
+
+    </section>
+    
+    <!-- Rec Books -->
+    <section class="rec-book">
+        <div class="rec-book-wrapper container">
+            <h2>추천도서</h2>
+
+            <button type="button" class="btn-slide btn-prev" data-slide-prev aria-label="이전 도서 보기">
+                <img src="./img/left-arrow.png" alt="">
+            </button>
+            <button type="button" class="btn-slide btn-next" data-slide-next aria-label="다음 도서 보기">
+                <img src="./img/right-arrow.png" alt="">
+            </button>
+    
+            <!-- 책 리스트 -->
+            <div class="book-slider-viewport">
+            <ul class="rec-book-list">
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-01.jpg" alt="무례한 세상에서 나를 지키는 법">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">무례한 세상에서 나를 지키는 법</strong>
+                            <span class="author">발타사르 그라시안</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-02.jpg" alt="거인을 읽다">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">거인을 읽다</strong>
+                            <span class="author">신영준</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-03.jpg" alt="인생을 위한 최소한의 생각">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">인생을 위한 최소한의 생각</strong>
+                            <span class="author">고영성</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-04.jpg" alt="글쓰기의 최전선 - '왜'라고 묻고 '느낌'이 쓰게 하라">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">글쓰기의 최전선 - '왜'라고 묻고 '느낌'이 쓰게 하라</strong>
+                            <span class="author">음유</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-05.jpg" alt="그럼에도 작가로 살겠다면: 작가들의 작가에게 듣는 글쓰기 아포리즘">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">그럼에도 작가로 살겠다면: 작가들의 작가에게 듣는 글쓰기 아포리즘</strong>
+                            <span class="author">줄리언 반스, 커트 보니것</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-book-06.jpg" alt="고종석의 문장2">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">고종석의 문장2</strong>
+                            <span class="author">고종석</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-07.jpg" alt="정전">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">정전</strong>
+                            <span class="author">함윤이</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-08.jpg" alt="토마토로 만들어 줘">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">토마토로 만들어 줘</strong>
+                            <span class="author">조예은</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-09.jpg" alt="어른의 AI 문해력">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">어른의 AI 문해력</strong>
+                            <span class="author">김진형</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-10.jpg" alt="10대에 꼭 해야 할 31가지 도전">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">10대에 꼭 해야 할 31가지 도전</strong>
+                            <span class="author">문중호</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-11.jpg" alt="스트레스 받는 사람들을 위한 니체">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">스트레스 받는 사람들을 위한 니체</strong>
+                            <span class="author">프리드리히 니체</span>
+                        </div>
+                    </a>
+                </li>
+                <li class="rec-book-item">
+                    <a href="#">
+                        <div class="thumb">
+                            <img src="./img/rec-books-12.jpg" alt="AI 다음 물결">
+                        </div>
+                        <div class="book-info">
+                            <strong class="title">AI 다음 물결</strong>
+                            <span class="author">류윈하오</span>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+            </div>
+
+        </div>
+
+    </section>
+    <!-- #Rec Books -->
+
+    <!-- Event -->
+    <section class="book-event">
+        <div class="book-event-wrapper container">
+            <h2>도서 행사</h2>
+        
+            <ul class="event-list">
+                <!-- 행사 카드 1 -->
+                <li class="event-item">
+                    <a href="#">
+                        <div class="event-info">
+                            <div class="badge-group">
+                                <span class="badge category">전시체험</span>
+                                <span class="badge status status-on">접수중</span>
+                            </div>
+                            <strong class="event-title">여름방학에 뭐 할까? 함께<br>만드는 만다라</strong>
+                            <ul class="event-details">
+                                <li>
+                                    <img src="./img/event-ic-01.png" class="icon" alt="">
+                                    <span>2026.06.14 ~ 06.14</span>
+                                </li>
+                                <li>
+                                    <img src="./img/event-ic-02.png" class="icon" alt="">
+                                    <span>13:00 ~ 15:00</span>
+                                </li>
+                                <li>
+                                    <img src="./img/event-ic-03.png" class="icon" alt="">
+                                    <span>1층 로비</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="event-thumb">
+                        <img src="./img/event-book-01.jpg" alt="여름방학에 뭐 할까? 함께 만드는 만다라 포스터">
+                        </div>
+                    </a>
+                </li>
+        
+                <!-- 행사 카드 2 -->
+                <li class="event-item">
+                    <a href="#">
+                        <div class="event-info">
+                            <div class="badge-group">
+                                <span class="badge category">반월</span>
+                                <span class="badge status status-on">접수중</span>
+                            </div>
+                            <strong class="event-title">6월 지은이를 찾아서</strong>
+                            <ul class="event-details">
+                                <li>
+                                    <img src="./img/event-ic-01.png" class="icon" alt="">
+                                    <span>2026.06.12 ~ 06.13</span>
+                                </li>
+                                <li>
+                                    <img src="./img/event-ic-02.png" class="icon" alt="">
+                                    <span>09:00 ~ 18:00</span>
+                                </li>
+                                <li>
+                                    <img src="./img/event-ic-03.png" class="icon" alt="">
+                                    <span>종합자료실</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="event-thumb">
+                        <img src="./img/event-book-02.jpg" alt="6월 지은이를 찾아서 포스터">
+                        </div>
+                    </a>
+                </li>
+        
+                <!-- 행사 카드 3 -->
+                <li class="event-item">
+                    <a href="#">
+                        <div class="event-info">
+                        <div class="badge-group">
+                            <span class="badge category">반월</span>
+                            <span class="badge status status-off">접수종료</span>
+                        </div>
+                        <strong class="event-title">월피예술도서관 2026년 겨울방학특강 안내</strong>
+                        <ul class="event-details">
+                            <li>
+                                <img src="./img/event-ic-01.png" class="icon" alt="">
+                                <span>2026.02.11 ~ 02.14</span>
+                            </li>
+                            <li>
+                                <img src="./img/event-ic-02.png" class="icon" alt="">
+                                <span>16:00 ~ 17:30</span>
+                            </li>
+                            <li>
+                                <img src="./img/event-ic-03.png" class="icon" alt="">
+                                <span>월피예술도서관 동아리실2</span>
+                            </li>
+                        </ul>
+                        </div>
+                        <div class="event-thumb">
+                        <img src="./img/event-book-03.jpg" alt="월피예술도서관 2026년 겨울방학특강 안내 포스터">
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </section>
+    <!-- # Event -->
+
+</main>
+<!-- # Main -->
+
+<!-- Footer -->
+<footer class="footer">
+    <!-- 패밀리사이트 -->
+    <div class="family-site-bar">
+        <div class="family-site-inner container">
+
+            <ul class="family-list">
+                <li><a href="#"><img src="./img/family-01.png" alt="국가전자도서관"></a></li>
+                <li><a href="#"><img src="./img/family-02.png" alt="국립중앙도서관"></a></li>
+                <li><a href="#"><img src="./img/family-03.png" alt="국회도서관"></a></li>
+                <li><a href="#"><img src="./img/family-04.png" alt="학술연구정보서비스 RISS"></a></li>
+            </ul>
+    
+            <button type="button" class="btn-related">
+                <span>관련사이트</span>
+                <img src="./img/down-arrow.png" alt="" class="icon-arrow">
+            </button>
+        </div>
+    </div>
+  
+    <!-- 푸터 메인 -->
+    <div class="footer-main container">
+
+        <div class="footer-left">
+            <h1 class="foot-logo">
+                <a><img src="./img/foot-logo.png" alt="반월도서관"></a>
+            </h1>
+            
+            <div class="footer-info">
+            <address class="address">
+                <strong>(15521)</strong> 안산시 상록구 반월새싹길 39-3
+            </address>
+            <p class="tel">TEL: 031-481-2663</p>
+
+            <ul class="policy-list">
+                <li><a href="#" class="privacy">개인정보 처리방침</a></li>
+                <li><a href="#">이메일추출 방지정책</a></li>
+                <li><a href="#">도서관행정 서비스헌장</a></li>
+                <li><a href="#">도서관윤리선언</a></li>
+                <li><a href="#">저작권정책</a></li>
+            </ul>
+    
+            <p class="copyright">Copyright © 2007 Ansan Banwol Library. All Rights Reserved.</p>
+            </div>
+        </div>
+  
+        <!-- SNS -->
+        <ul class="sns-list">
+            <li>
+                <a href="#" aria-label="facebook">
+                    <img src="./img/sns-01.png" alt="Facebook">
+                </a>
+            </li>
+            <li>
+                <a href="#" aria-label="instagram">
+                    <img src="./img/sns-02.png" alt="Instagram">
+                </a>
+            </li>
+            <li>
+                <a href="#" aria-label="youtube">
+                    <img src="./img/sns-03.png" alt="Youtube">
+                </a>
+            </li>
+        </ul>
+      
+    </div>
+
+  </footer>
+<!-- # Footer -->
+
+<button type="button" class="scroll-top" aria-label="맨 위로 이동">
+    <img src="./img/right-arrow.png" alt="">
+</button>
+<script src="./js/main.js" defer></script>
+</body>
+</html>
