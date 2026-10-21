@@ -40,7 +40,46 @@ const step = () => originals[0].getBoundingClientRect().width + parseFloat(getCo
 function position(animate = false) { track.classList.toggle('is-animating', animate); track.style.transform = `translateX(${-index * step()}px)`; }
 function finish() { clearTimeout(timer); index = count + ((index-count)%count+count)%count; position(); moving = false; document.querySelector('#carousel-status').textContent = `모바일 프로젝트 ${index-count+1} / ${count}`; }
 function move(direction) { if(moving) return; moving=true; index += direction; position(!reduced.matches); if(reduced.matches) finish(); else timer = setTimeout(finish,480); }
-track.addEventListener('transitionend',event=>{if(event.propertyName==='transform' && moving) finish();});
+let pointerDrag = null;
+let suppressCardClick = false;
+let clickSuppressionTimer;
+viewport.addEventListener('pointerdown', event => {
+	if (event.button !== 0 || !event.target.closest('.mobile-card img')) return;
+	if (moving) finish();
+	pointerDrag = { id: event.pointerId, startX: event.clientX, startIndex: index, currentIndex: index, dragged: false };
+});
+viewport.addEventListener('pointermove', event => {
+	if (!pointerDrag || event.pointerId !== pointerDrag.id) return;
+	const deltaX = event.clientX - pointerDrag.startX;
+	if (!pointerDrag.dragged && Math.abs(deltaX) < 6) return;
+	if (!pointerDrag.dragged) {
+		pointerDrag.dragged = true;
+		track.classList.add('is-dragging');
+		track.setPointerCapture(event.pointerId);
+	}
+	const rawIndex = pointerDrag.startIndex - deltaX / step();
+	pointerDrag.currentIndex = count + ((rawIndex - count) % count + count) % count;
+	track.style.transform = `translateX(${-pointerDrag.currentIndex * step()}px)`;
+});
+function endPointerDrag(event) {
+	if (!pointerDrag || (event && event.pointerId !== pointerDrag.id)) return;
+	const drag = pointerDrag;
+	pointerDrag = null;
+	if (track.hasPointerCapture(drag.id)) track.releasePointerCapture(drag.id);
+	if (!drag.dragged) return;
+	track.classList.remove('is-dragging');
+	suppressCardClick = true;
+	clearTimeout(clickSuppressionTimer);
+	clickSuppressionTimer = setTimeout(() => { suppressCardClick = false; }, 0);
+	index = Math.round(drag.currentIndex);
+	index = count + ((index - count) % count + count) % count;
+	moving = true;
+	position(!reduced.matches);
+	if (reduced.matches) finish();
+	else timer = setTimeout(finish, 480);
+}
+viewport.addEventListener('pointerup', endPointerDrag);
+viewport.addEventListener('pointercancel', endPointerDrag);
 document.querySelectorAll('[data-direction]').forEach(button=>button.addEventListener('click',()=>move(button.dataset.direction === 'next' ? 1 : -1)));
 document.querySelector('.mobile-projects').addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();move(event.key==='ArrowRight'?1:-1);}});
 new ResizeObserver(()=>{if(moving)finish();else position();}).observe(viewport);
@@ -74,6 +113,7 @@ function closeMobileImagePreview() {
 	}, reducePageMotion.matches ? 0 : 300);
 }
 track.addEventListener('click', (event) => {
+	if (suppressCardClick) { event.preventDefault(); event.stopPropagation(); suppressCardClick = false; clearTimeout(clickSuppressionTimer); return; }
 	const image = event.target.closest('.mobile-card img');
 	if (!image) return;
 	openMobileImagePreview(image);
@@ -124,7 +164,7 @@ const modalProjectActions = [
 const projectImagePaths = (folder, prefix, count) => Array.from({ length: count }, (_, index) => `./assets/projects/${folder}/${prefix}${String(index + 1).padStart(2, '0')}.webp`);
 const modalProjectDetails = [
 	{ description: '기존의 복잡한 메뉴 구조와 노후화된 GUI를 정돈하여, 지역 주민들이 필요한 정보에 쉽고 빠르게 접근할 수 있도록 사용성과 접근성을 개선했습니다. <span class="banp">UI/UX 기획 및 디자인을 <b>단독으로 진행</b></span>했으며, <span class="banp"><b>AI를 적극적으로 활용</b>한 퍼블리싱 및 프론트엔드 코딩</span> 결과물은<br>꼼꼼한 검수와 오류 수정 및 보완 과정을 거쳐 완성했습니다.', images: projectImagePaths('banwol', 'ban', 2), background: '#F3F4F5', captionsAfter: ['자료검색 > 추천도서'] },
-	{ description: '아망떼만의 여름 차렵이불 제품이 가진 고유의 매력을 직관적으로 전달하는 데 중점을 두었습니다. 또한, 고급스러운 분위기와 무드에 맞춰<br>시각적 일관성을 확보하고, 미적 완성도를 높여 고객의 시선을 사로잡는 상세페이지 디자인을 완성했습니다.', images: projectImagePaths('amante', 'amante', 14) },
+	{ description: '아망떼만의 여름 차렵이불 제품이 가진 고유의 매력을 직관적으로 전달하는 데 중점을 두었습니다. 또한, 고급스러운 분위기와 무드에 맞춰<br>시각적 일관성을 확보하고, 미적 완성도를 높여 고객의 시선을 사로잡는 상세페이지 디자인을 완성했습니다.<br><span class="banp">사용된 제품 이미지의 대부분은 <b>AI를 적극적으로 활용</b>해 제작되었습니다.</span>', images: projectImagePaths('amante', 'amante', 14) },
 	{ description: '단조롭던 비주얼과 제품 소구점이 미흡했던 정보 구조를 개편하여, 구매 전환과 브랜드 각인에 최적화된 콘텐츠 흐름을 구축했습니다. 풍년살림 특유의 친근하면서도 신뢰감 있는 연출을 통해 브랜드 가치가 자연스럽게 전달되도록 구현했습니다. <span class="banp">UI/UX 기획 및 디자인은 <b>단독으로 진행</b></span>했으며, <span class="banp">퍼블리싱/프론트엔드 코딩은 <b>AI를 적극적으로 활용</b>하여</span> 꼼꼼한 검수와 오류 수정 및 보완 과정을 거쳐 완성했습니다.', images: projectImagePaths('poongnyun', 'pn', 3), background: '#F3F4F5', captionsAfter: ['Home > 베스트', 'Home > 풍년살림'] },
 	{ description: '사용자 리서치를 바탕으로 기존 앱의 UX 취약점을 보완하고, 예약 탐색 흐름이 매끄럽게 이어지도록 레이아웃을 다듬었습니다. 직관적인 UI 요소로 정보의 명확성을 향상시키는 한편, 브랜드 고유의 톤앤매너를 시각화한 GUI 디자인으로 완성도 높은 사용자 경험을 구현했습니다.', images: projectImagePaths('agoda', 'agoda_', 16) },
 	{ description: 'Cafe24 플랫폼의 무료 템플릿을 기반으로 오리지널 커피 브랜드 AUBE의 온라인 쇼핑몰을 제작했습니다. 생성형 AI로 브랜드 컨셉에 맞는<br>비주얼 이미지를 직접 연출·생성하여 메인 배너로 활용했으며, 기존 템플릿 구조를 커스텀화하여 브랜드 감성을 살렸습니다.', images: projectImagePaths('aube', 'aube', 1) },
