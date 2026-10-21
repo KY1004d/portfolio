@@ -10,6 +10,7 @@
 --color-blue: #3B5BFE;
     
 /* font */
+--font-fb: 'pretendard', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif;
 --font-h2: 700 3.2rem/4.2rem 'Geist', sans-serif;
 --font-sub: 400 1.6rem/2.1rem 'Geist', sans-serif;
 --font-body-m: 400 1.6rem/1.9rem 'Inter', sans-serif;
