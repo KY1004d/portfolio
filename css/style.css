@@ -85,7 +85,7 @@ a:focus-visible, button:focus-visible { outline: .2rem solid var(--color-blue); 
 .availability svg { width: .8rem; height: .8rem; animation: pulse 1.6s ease-in-out infinite; }
 @keyframes pulse { 50%{opacity:.25} }
 .work h2 { margin:0 3rem 2.4rem; font: 700 4.8rem/5.8rem 'Bricolage Grotesque', sans-serif; color: var(--color-black); letter-spacing: -.02em; }
-.work-box { min-height: 51.4rem; padding: 4rem 3.2rem 5rem; background: var(--color-white); border-top: .1rem solid var(--color-border); border-bottom: .1rem solid var(--color-border); display: flex; align-items: flex-start; gap: 6.4rem; }
+.work-box { min-height: 46rem; padding: 4rem 3.2rem 5rem; background: var(--color-white); border-top: .1rem solid var(--color-border); border-bottom: .1rem solid var(--color-border); display: flex; align-items: flex-start; gap: 6.4rem; }
 .profile { width: 20rem; height: 20rem; flex-shrink: 0; border-radius: 50%; object-fit: cover;}
 .history { flex: 1; min-width: 0; display: grid; gap: 4.4rem; color: var(--color-gray-01); letter-spacing: -.02em; }
 .history-group h3 { font: var(--font-foot-title); margin-bottom: 1.3rem; }
